@@ -9,7 +9,7 @@ export default {
         lightText: "#D1D6D8",
         mediumText: "#4C585F",
         darkText: "#2A3942",
-        darkBorder: "#202C33",
+        darkCard: "#202C33",
         // other theme color
         pink: "#ff8fab",
         green: "#80ed99",

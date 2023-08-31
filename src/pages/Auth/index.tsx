@@ -5,11 +5,10 @@ import Login from "./Login";
 // utils
 import SignUp from "./SignUp";
 import { toast } from "react-hot-toast";
-import { colorShades } from "@/utils/theme";
 import { useAuth } from "@/store/auth/useAuth";
 import { AuthInputForm, AppAuth } from "@/types/pages";
 
-const Auth = ({ isLoggedIn }: AppAuth) => {
+const Auth = ({ isLoggedIn, navbarHeight }: AppAuth) => {
   const { handleLogin, handleSignUp, isLoading } = useAuth();
   const [inputForm, setInputForm] = useState<AuthInputForm>({});
   const [switchAuth, setSwitchAuth] = useState<boolean>(true);
@@ -51,11 +50,12 @@ const Auth = ({ isLoggedIn }: AppAuth) => {
    */
 
   return (
-    <div className="flex w-[95%] m-auto h-[100vh] justify-center items-center">
+    <div
+      className={`flex w-[95%] m-auto h-[calc(100vh-${navbarHeight})] justify-center items-center`}
+    >
       <form
         onSubmit={handleFormSubmit}
-        className="w-[30rem] rounded-lg flex flex-col items-center gap-y-[1.5rem] shadow-lg "
-        style={{ backgroundColor: colorShades.grey.box }}
+        className="w-[30rem] rounded-lg flex flex-col items-center gap-y-[1.5rem] shadow-lg bg-darkCard"
       >
         {/* ==== HEAD ==== */}
         <div className="mt-[2rem] mb-[1rem]">

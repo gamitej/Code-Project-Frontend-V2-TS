@@ -1,11 +1,18 @@
 import { Suspense } from "react";
 import { Toaster } from "react-hot-toast";
 import Router from "@/routes/Router";
+// comp
+import { Header } from "@/components";
 // store
 import { useAuth } from "@/store/auth/useAuth";
 
 function App() {
   const { isLoggedIn } = useAuth();
+
+  const AppProps = {
+    isLoggedIn,
+    navbarHeight: "5rem",
+  };
 
   /**
    * JSX
@@ -14,8 +21,9 @@ function App() {
     <div>
       <Toaster position="top-center" reverseOrder={false} />
       {/* Navbar */}
+      <Header {...AppProps} />
       <Suspense fallback={<Loading />}>
-        <Router isLoggedIn={isLoggedIn} />
+        <Router {...AppProps} />
       </Suspense>
     </div>
   );

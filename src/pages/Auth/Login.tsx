@@ -10,10 +10,10 @@ import { LoginProps } from "@/types/pages";
 
 const Login = ({
   onChange,
-  inputForm,
-  handleAuthSwitch,
-  switchAuth,
   isLoading,
+  inputForm,
+  switchAuth,
+  handleAuthSwitch,
 }: LoginProps) => {
   return (
     <>
@@ -21,17 +21,17 @@ const Login = ({
       <div className="flex flex-col items-center w-full justify-evenly gap-y-[1.5rem]">
         <InputTextField
           width="75%"
+          name="username"
           onChange={onChange}
           placeholder="Enter username"
-          name="username"
           value={inputForm.username || ""}
         />
         <InputFieldPassword
           width="75%"
           name="password"
+          onChange={onChange}
           placeholder="Enter password"
           value={inputForm.password || ""}
-          onChange={onChange}
         />
       </div>
       {/* footer */}
