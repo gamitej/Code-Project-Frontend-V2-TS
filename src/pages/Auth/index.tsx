@@ -3,8 +3,8 @@ import { Navigate } from "react-router-dom";
 // comp
 import Login from "./Login";
 // utils
-import { colorShades } from "@/utils/theme";
 import SignUp from "./SignUp";
+import { colorShades } from "@/utils/theme";
 import { useAuth } from "@/store/auth/useAuth";
 import { toast } from "react-hot-toast";
 
