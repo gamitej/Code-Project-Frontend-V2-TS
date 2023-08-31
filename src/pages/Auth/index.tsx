@@ -4,9 +4,9 @@ import { Navigate } from "react-router-dom";
 import Login from "./Login";
 // utils
 import SignUp from "./SignUp";
+import { toast } from "react-hot-toast";
 import { colorShades } from "@/utils/theme";
 import { useAuth } from "@/store/auth/useAuth";
-import { toast } from "react-hot-toast";
 
 interface InputForm {
   username?: string;
@@ -14,18 +14,22 @@ interface InputForm {
   confirmPassword?: string;
 }
 
-const Auth = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
+interface AuthProps {
+  isLoggedIn: boolean;
+}
+
+const Auth = ({ isLoggedIn }: AuthProps) => {
   const { handleLogin, handleSignUp, isLoading } = useAuth();
   const [inputForm, setInputForm] = useState<InputForm>({});
-  const [switchAuth, setSwitchAuth] = useState(true);
+  const [switchAuth, setSwitchAuth] = useState<boolean>(true);
 
-  // form event handlers
-  const handleInputChange = (e) => {
+  // ================== EVENT HANDLERS START ====================
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setInputForm((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = (e: any) => {
     e.preventDefault();
     if (switchAuth) {
       handleLogin(inputForm);
@@ -42,9 +46,11 @@ const Auth = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
     setSwitchAuth((prev) => !prev);
   };
 
+  // ================== EVENT HANDLERS END ====================
+
   useMemo(() => setInputForm({}), [isLoggedIn]);
 
-  // if user is logged in
+  // ====  if user is logged in ======
   if (isLoggedIn) {
     return <Navigate to="/" replace />;
   }
@@ -60,7 +66,7 @@ const Auth = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
         className="w-[30rem] rounded-lg flex flex-col items-center gap-y-[1.5rem] shadow-lg "
         style={{ backgroundColor: colorShades.grey.box }}
       >
-        {/* head */}
+        {/* ==== HEAD ==== */}
         <div className="mt-[2rem] mb-[1rem]">
           <h3 className="text-white text-2xl font-semibold flex justify-center items-center mt-3 gap-x-3">
             <img src="/assets/img-w.png" width={35} loading="lazy" />

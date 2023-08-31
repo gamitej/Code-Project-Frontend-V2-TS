@@ -17,6 +17,8 @@ interface AuthState {
   isLoggedIn: boolean;
   userInfo: object;
   isLoading: boolean;
+  handleLogin: (data: object) => void;
+  handleSignUp: (data: object) => void;
 }
 
 export const useAuth = create<AuthState>((set) => ({
@@ -29,7 +31,7 @@ export const useAuth = create<AuthState>((set) => ({
     set((state) => ({ ...state, isLoggedIn: false }));
   },
   // ============ LOGIN ============
-  handleLogin: async (data: object) => {
+  handleLogin: async (data) => {
     set((state) => ({ ...state, isLoading: true }));
     const { message, error, user } = await LoginApi(data);
     if (!error) {
@@ -51,7 +53,7 @@ export const useAuth = create<AuthState>((set) => ({
     }
   },
   // ============ SIGN-UP ============
-  handleSignUp: async (data: object) => {
+  handleSignUp: async (data) => {
     set((state) => ({ ...state, isLoading: true }));
     const { message, error, user } = await SignUpApi(data);
     if (!error) {
