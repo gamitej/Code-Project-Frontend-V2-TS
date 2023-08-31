@@ -51,7 +51,8 @@ const Auth = ({ isLoggedIn, navbarHeight }: AppAuth) => {
 
   return (
     <div
-      className={`flex w-[95%] m-auto h-[calc(100vh-${navbarHeight})] justify-center items-center`}
+      className={`flex w-[95%] m-auto justify-center items-center`}
+      style={{ height: `calc(100vh - ${navbarHeight}rem)` }}
     >
       <form
         onSubmit={handleFormSubmit}

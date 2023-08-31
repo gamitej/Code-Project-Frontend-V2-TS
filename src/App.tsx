@@ -11,7 +11,7 @@ function App() {
 
   const AppProps = {
     isLoggedIn,
-    navbarHeight: "5rem",
+    navbarHeight: "4",
   };
 
   /**
