@@ -7,20 +7,21 @@ export type AppAuth = {
 // ============== AUTH =============
 
 // auth
-export interface AuthProps {
-  isLoggedIn: boolean;
-}
-
 export interface AuthInputForm {
   username?: string;
   password?: string;
   confirmPassword?: string;
 }
 
-export interface LoginProps {
-  inputForm: AuthInputForm;
+// login-signup bottom footer
+export type FooterProps = {
   handleAuthSwitch: (event: React.MouseEvent<HTMLButtonElement>) => void;
   switchAuth: boolean;
+};
+
+// login - signup props
+export interface LoginProps extends FooterProps {
+  inputForm: AuthInputForm;
   isLoading: boolean;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }

@@ -1,7 +1,11 @@
 import PropTypes from "prop-types";
 import { Navigate, Outlet, useLocation } from "react-router-dom";
 
-const ProtectedRoute = ({ isLoggedIn }) => {
+interface ProtectedRouteProps {
+  isLoggedIn: boolean;
+}
+
+const ProtectedRoute = ({ isLoggedIn }: ProtectedRouteProps) => {
   const { pathname: currentPath } = useLocation();
 
   return !isLoggedIn ? (

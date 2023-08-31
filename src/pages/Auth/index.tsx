@@ -7,9 +7,9 @@ import SignUp from "./SignUp";
 import { toast } from "react-hot-toast";
 import { colorShades } from "@/utils/theme";
 import { useAuth } from "@/store/auth/useAuth";
-import { AuthInputForm, AuthProps } from "@/types/pages";
+import { AuthInputForm, AppAuth } from "@/types/pages";
 
-const Auth = ({ isLoggedIn }: AuthProps) => {
+const Auth = ({ isLoggedIn }: AppAuth) => {
   const { handleLogin, handleSignUp, isLoading } = useAuth();
   const [inputForm, setInputForm] = useState<AuthInputForm>({});
   const [switchAuth, setSwitchAuth] = useState<boolean>(true);
