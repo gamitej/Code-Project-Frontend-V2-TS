@@ -5,7 +5,6 @@ import {
   LoadingButton,
 } from "@/components";
 // utils
-import { colorShades } from "@/utils/theme";
 import Footer from "./Footer";
 import { LoginProps } from "@/types/pages";
 
@@ -37,14 +36,7 @@ const Login = ({
       </div>
       {/* footer */}
       <div className="mb-[1rem] w-full text-center">
-        <LoadingButton
-          isLoading={isLoading}
-          label="Login"
-          sx={{
-            backgroundColor: colorShades.green["700"],
-            width: "75%",
-          }}
-        />
+        <LoadingButton isLoading={isLoading} label="Login" />
       </div>
       <Footer handleAuthSwitch={handleAuthSwitch} switchAuth={switchAuth} />
     </>

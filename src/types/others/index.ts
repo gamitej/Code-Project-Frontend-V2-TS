@@ -27,10 +27,9 @@ export interface inputTextFieldProps extends Omit<TextFieldProps, "size"> {
 }
 
 export interface loadingButtonProps extends Omit<ButtonProps, "size"> {
-  btnSize?: "small" | "medium" | "large"; // Correctly typing btnSize
   loadingSize?: number;
   isLoading?: boolean;
   clsName?: string;
   label?: string;
-  sx?: any;
+  type?: "submit";
 }

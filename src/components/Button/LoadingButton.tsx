@@ -1,38 +1,32 @@
 import { loadingButtonProps } from "@/types/others";
-import { Button, CircularProgress } from "@mui/material";
+import { CircularProgress } from "@mui/material";
 
 const LoadingButton: React.FC<loadingButtonProps> = ({
-  btnSize = "large",
-  loadingSize = 20,
+  loadingSize = 15,
   isLoading = false,
-  variant = "contained",
   type = "submit",
   clsName = "",
   label = "",
-  sx = {},
 }) => {
   return (
-    <Button
+    <button
       type={type}
-      size={btnSize} // Using btnSize here
-      variant={variant}
       disabled={isLoading}
-      startIcon={
+      className={`${clsName} bg-green w-[75%] py-2 rounded-sm`}
+    >
+      <span className="flex justify-center items-center gap-2">
         <CircularProgress
           size={loadingSize}
           className="text-md"
           sx={{
-            color: "whitesmoke",
+            color: "black",
             fontSize: "6px",
             display: isLoading ? "" : "none",
           }}
         />
-      }
-      className={`${clsName}`}
-      sx={sx}
-    >
-      {label}
-    </Button>
+        {label}
+      </span>
+    </button>
   );
 };
 
