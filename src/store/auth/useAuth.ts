@@ -22,15 +22,16 @@ interface AuthState {
 }
 
 export const useAuth = create<AuthState>((set) => ({
+  // variables
   isLoggedIn: getSessionInfoBool(USER_SESSION) || false,
   userInfo: getSession(USER_SESSION) || {},
   isLoading: false,
-  // ============ LOGOUT ============
+  // logout
   handleLogout: () => {
     removeSession(USER_SESSION);
     set((state) => ({ ...state, isLoggedIn: false }));
   },
-  // ============ LOGIN ============
+  // login
   handleLogin: async (data) => {
     set((state) => ({ ...state, isLoading: true }));
     const { message, error, user } = await LoginApi(data);
@@ -52,7 +53,7 @@ export const useAuth = create<AuthState>((set) => ({
       }));
     }
   },
-  // ============ SIGN-UP ============
+  // sign-up
   handleSignUp: async (data) => {
     set((state) => ({ ...state, isLoading: true }));
     const { message, error, user } = await SignUpApi(data);

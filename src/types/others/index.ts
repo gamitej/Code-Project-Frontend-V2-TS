@@ -1,4 +1,4 @@
-import { TextFieldProps } from "@mui/material";
+import { ButtonProps, TextFieldProps } from "@mui/material";
 
 export interface inputFieldPasswordProps {
   name: string;
@@ -24,4 +24,13 @@ export interface inputTextFieldProps extends Omit<TextFieldProps, "size"> {
   minLength?: number;
   maxLength?: number;
   placeholder?: string;
+}
+
+export interface loadingButtonProps extends Omit<ButtonProps, "size"> {
+  btnSize?: "small" | "medium" | "large"; // Correctly typing btnSize
+  loadingSize?: number;
+  isLoading?: boolean;
+  clsName?: string;
+  label?: string;
+  sx?: any;
 }

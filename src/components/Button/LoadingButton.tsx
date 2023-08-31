@@ -1,16 +1,7 @@
+import { loadingButtonProps } from "@/types/others";
 import { Button, CircularProgress } from "@mui/material";
-import { ButtonProps } from "@mui/material/Button"; // Import ButtonProps type
 
-interface LoadingButtonProps extends Omit<ButtonProps, "size"> {
-  btnSize?: "small" | "medium" | "large"; // Correctly typing btnSize
-  loadingSize?: number;
-  isLoading?: boolean;
-  clsName?: string;
-  label?: string;
-  sx?: any;
-}
-
-const LoadingButton: React.FC<LoadingButtonProps> = ({
+const LoadingButton: React.FC<loadingButtonProps> = ({
   btnSize = "large",
   loadingSize = 20,
   isLoading = false,

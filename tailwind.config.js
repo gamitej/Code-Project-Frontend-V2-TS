@@ -5,10 +5,20 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#00040f",
-        secondary: "#00f6ff",
-        dimWhite: "rgba(255, 255, 255, 0.7)",
-        dimBlue: "rgba(9, 151, 124, 0.1)",
+        dark: "#111b21",
+        lightText: "#D1D6D8",
+        mediumText: "#4C585F",
+        darkText: "#2A3942",
+        darkBorder: "#202C33",
+        // other theme color
+        pink: "#ff8fab",
+        green: "#80ed99",
+        brown: "#e9c46a",
+        purple: "#ea9ab2",
+        skyBlue: "#219ebc",
+        mustard: "#fb8500",
+        mahandi: "#90a955",
+        navyBlue: "#0077b6",
       },
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
@@ -24,4 +34,4 @@ export default {
     },
   },
   plugins: [],
-}
+};
