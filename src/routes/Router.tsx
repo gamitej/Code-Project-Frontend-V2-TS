@@ -1,8 +1,9 @@
 import { lazy } from "react";
+import { AppAuth } from "@/types/pages";
 import { Navigate, useRoutes } from "react-router-dom";
+// pages
 import Auth from "@/pages/Auth";
 import ProtectedRoute from "@/pages/Auth/ProtectedRoutes";
-import { AppAuth } from "@/types/pages";
 
 // lazy
 const Explore = lazy(() => import("@/pages/Explore"));

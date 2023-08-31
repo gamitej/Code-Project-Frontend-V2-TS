@@ -60,8 +60,8 @@ const Auth = ({ isLoggedIn }: AppAuth) => {
         {/* ==== HEAD ==== */}
         <div className="mt-[2rem] mb-[1rem]">
           <h3 className="text-white text-2xl font-semibold flex justify-center items-center mt-3 gap-x-3">
-            <img src="/assets/img-w.png" width={35} loading="lazy" />
-            WhatsApp
+            {/* <img src="/assets/img-w.png" width={35} loading="lazy" /> */}
+            PeetCode
           </h3>
         </div>
 
