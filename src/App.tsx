@@ -1,5 +1,42 @@
+import { Suspense } from "react";
+import { Toaster } from "react-hot-toast";
+import Router from "@/routes/Router";
+// store
+// import { useAuth } from "@/store/auth/useAuth";
+import { AppAuth } from "@/types/types";
+
+const appAuth: AppAuth = {
+  isLoggedIn: false,
+};
+
 function App() {
-  return <h1 className="text-red-200">Make Changes to App.tsx</h1>;
+  const { isLoggedIn } = appAuth;
+
+  /**
+   * JSX
+   */
+  return (
+    <div>
+      <Toaster position="top-center" reverseOrder={false} />
+      {/* Navbar */}
+      <Suspense fallback={<Loading />}>
+        <Router isLoggedIn={isLoggedIn} />
+      </Suspense>
+    </div>
+  );
 }
+
+// =========== LOADING-COMP ==============
+
+const Loading = () => {
+  return (
+    <div
+      className="h-[100vh] w-full flex justify-center
+   items-center text-white text-xl"
+    >
+      <img src="/assets/loading.gif" alt="" width={70} height={70} />
+    </div>
+  );
+};
 
 export default App;
