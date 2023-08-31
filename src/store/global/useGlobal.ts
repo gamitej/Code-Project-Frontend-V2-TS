@@ -6,7 +6,7 @@ interface GlobalState {
 }
 
 export const useGlobal = create<GlobalState>((set) => ({
-  colorShades: "#e9c46a",
+  colorShades: "#ea9ab2",
   setColorShades: (color) => {
     set((state) => ({ ...state, colorShades: color }));
   },

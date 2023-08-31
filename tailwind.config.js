@@ -6,10 +6,10 @@ export default {
     extend: {
       colors: {
         dark: "#111b21",
+        darkCard: "#202C33",
+        darkText: "#2A3942",
         lightText: "#D1D6D8",
         mediumText: "#4C585F",
-        darkText: "#2A3942",
-        darkCard: "#202C33",
         // other theme color
         pink: "#ff8fab",
         green: "#80ed99",
