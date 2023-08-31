@@ -12,7 +12,6 @@ import {
 // mui icons
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
-import { colorShades } from "@/utils/theme";
 
 function InputFieldPassword({
   width = "80%",
@@ -41,7 +40,7 @@ function InputFieldPassword({
       sx={{
         m: 1,
         width,
-        backgroundColor: colorShades.grey["700"],
+        backgroundColor: "#D1D6D8",
         borderRadius: ".25rem",
       }}
       variant="outlined"

@@ -1,5 +1,4 @@
 import { TextField } from "@mui/material";
-import { colorShades } from "@/utils/theme";
 import { inputTextFieldProps } from "@/types/others";
 
 const InputTextField = ({
@@ -31,7 +30,7 @@ const InputTextField = ({
       sx={{
         width,
         borderRadius: ".25rem",
-        backgroundColor: colorShades.grey["700"],
+        backgroundColor: "#D1D6D8",
         color: "whitesmoke",
       }}
       required={required}
