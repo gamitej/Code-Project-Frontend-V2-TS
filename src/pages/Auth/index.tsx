@@ -7,20 +7,11 @@ import SignUp from "./SignUp";
 import { toast } from "react-hot-toast";
 import { colorShades } from "@/utils/theme";
 import { useAuth } from "@/store/auth/useAuth";
-
-interface InputForm {
-  username?: string;
-  password?: string;
-  confirmPassword?: string;
-}
-
-interface AuthProps {
-  isLoggedIn: boolean;
-}
+import { AuthInputForm, AuthProps } from "@/types/pages";
 
 const Auth = ({ isLoggedIn }: AuthProps) => {
   const { handleLogin, handleSignUp, isLoading } = useAuth();
-  const [inputForm, setInputForm] = useState<InputForm>({});
+  const [inputForm, setInputForm] = useState<AuthInputForm>({});
   const [switchAuth, setSwitchAuth] = useState<boolean>(true);
 
   // ================== EVENT HANDLERS START ====================

@@ -1,4 +1,3 @@
-import React from "react";
 // comp
 import {
   InputFieldPassword,
@@ -8,7 +7,7 @@ import {
 // utils
 import { colorShades } from "@/utils/theme";
 import Footer from "./Footer";
-import { TextField } from "@mui/material";
+import { LoginProps } from "@/types/pages";
 
 const Login = ({
   onChange,
@@ -16,7 +15,7 @@ const Login = ({
   handleAuthSwitch,
   switchAuth,
   isLoading,
-}) => {
+}: LoginProps) => {
   return (
     <>
       {/* login body */}

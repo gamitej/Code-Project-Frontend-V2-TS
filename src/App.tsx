@@ -3,7 +3,7 @@ import { Toaster } from "react-hot-toast";
 import Router from "@/routes/Router";
 // store
 // import { useAuth } from "@/store/auth/useAuth";
-import { AppAuth } from "@/types/types";
+import { AppAuth } from "@/types/pages";
 
 const appAuth: AppAuth = {
   isLoggedIn: false,
