@@ -34,7 +34,7 @@ const Loading = () => {
       className="h-[100vh] w-full flex justify-center
    items-center text-white text-xl"
     >
-      <img src="/assets/loading.gif" alt="" width={70} height={70} />
+      loading...
     </div>
   );
 };

@@ -8,13 +8,18 @@ import SignUp from "./SignUp";
 import { useAuth } from "@/store/auth/useAuth";
 import { toast } from "react-hot-toast";
 
-const Auth = ({ isLoggedIn }) => {
+interface InputForm {
+  username?: string;
+  password?: string;
+  confirmPassword?: string;
+}
+
+const Auth = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
   const { handleLogin, handleSignUp, isLoading } = useAuth();
-  const [inputForm, setInputForm] = useState({});
+  const [inputForm, setInputForm] = useState<InputForm>({});
   const [switchAuth, setSwitchAuth] = useState(true);
 
   // form event handlers
-
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setInputForm((prev) => ({ ...prev, [name]: value }));

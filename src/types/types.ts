@@ -1,7 +1,5 @@
 // ============= APP.TS ===============
 
 export type AppAuth = {
-  isLoggedIn: Boolean;
+  isLoggedIn: boolean;
 };
-
-

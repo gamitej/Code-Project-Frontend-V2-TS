@@ -1,6 +1,6 @@
 type FooterProps = {
   handleAuthSwitch: (event: React.MouseEvent<HTMLButtonElement>) => void;
-  switchAuth: Boolean;
+  switchAuth: boolean;
 };
 
 const Footer = ({ handleAuthSwitch, switchAuth = true }: FooterProps) => {
