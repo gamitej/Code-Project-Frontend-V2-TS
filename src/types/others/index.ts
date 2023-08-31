@@ -8,7 +8,7 @@ export interface inputFieldPasswordProps {
   maxLength?: number;
   placeholder: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  label: string;
+  label?: string;
 }
 
 export interface inputTextFieldProps extends Omit<TextFieldProps, "size"> {
