@@ -19,20 +19,19 @@ const Explore = () => {
 
   const { data: topicsData = [], onGoingTopic = {} } = exploreData;
 
-  if (isLoading) return <div>Loading...</div>;
-
-  if (error) return <div className="text-white">Error Occurred</div>;
   /**
    * TSX
    */
   return (
-    <Page>
+    <Page loading={isLoading} error={error}>
       <div className="flex flex-col gap-y-16 justify-center">
         {/* HEADING */}
         <div className="flex flex-col justify-center items-center gap-y-4">
-          <h3 className="text-white">Explore</h3>
+          <h3 className="text-white font-semibold text-2xl">Explore</h3>
           {onGoingTopic && (
-            <p className="text-white capitalize">{onGoingTopic.data}</p>
+            <p className="text-white capitalize">
+              In progress topic - {onGoingTopic.data}
+            </p>
           )}
         </div>
         {/* CONTENT */}
