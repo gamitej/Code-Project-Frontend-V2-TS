@@ -1,10 +1,17 @@
-import React from "react";
 // mui
 import { Skeleton, Stack } from "@mui/material";
-import { useGlobal } from "../../store/global/useGlobal";
 
-const LoadingSkeleton = ({ className = "", page = "home" }) => {
-  const { darkMode } = useGlobal();
+interface loadingSkeletonProps {
+  className: string;
+  page: string;
+  darkMode: boolean;
+}
+
+const LoadingSkeleton = ({
+  className = "",
+  page = "home",
+  darkMode = false,
+}: loadingSkeletonProps) => {
   // ====================== HOME PAGE SKELETON ====================
   if (page === "home") {
     return (

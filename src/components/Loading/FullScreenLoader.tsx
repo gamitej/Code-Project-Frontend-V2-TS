@@ -1,11 +1,16 @@
-import React from "react";
 import { Backdrop, CircularProgress } from "@mui/material";
+
+interface fullScreenLoaderProps {
+  title: string;
+  open: boolean;
+  handleClose: () => void;
+}
 
 const FullScreenLoader = ({
   title = "loading",
   open = false,
   handleClose = () => {},
-}) => {
+}: fullScreenLoaderProps) => {
   return (
     <Backdrop
       sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
