@@ -1,8 +1,8 @@
 import { useGlobal } from "@/store/global/useGlobal";
-import { loadingButtonProps } from "@/types/others";
+import { LoadingButtonProps } from "@/types/others";
 import { CircularProgress } from "@mui/material";
 
-const LoadingButton: React.FC<loadingButtonProps> = ({
+const LoadingButton: React.FC<LoadingButtonProps> = ({
   loadingSize = 15,
   isLoading = false,
   type = "submit",

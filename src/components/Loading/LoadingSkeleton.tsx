@@ -1,7 +1,7 @@
 // mui
 import { Skeleton, Stack } from "@mui/material";
 
-interface loadingSkeletonProps {
+interface LoadingSkeletonProps {
   className: string;
   page: string;
   darkMode: boolean;
@@ -11,7 +11,7 @@ const LoadingSkeleton = ({
   className = "",
   page = "home",
   darkMode = false,
-}: loadingSkeletonProps) => {
+}: LoadingSkeletonProps) => {
   // ====================== HOME PAGE SKELETON ====================
   if (page === "home") {
     return (

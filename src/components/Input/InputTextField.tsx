@@ -1,5 +1,5 @@
 import { TextField } from "@mui/material";
-import { inputTextFieldProps } from "@/types/others";
+import { InputTextFieldProps } from "@/types/others";
 
 const InputTextField = ({
   value = "",
@@ -15,7 +15,7 @@ const InputTextField = ({
   maxLength = 50,
   placeholder,
   ...restProps
-}: inputTextFieldProps) => {
+}: InputTextFieldProps) => {
   return (
     <TextField
       type={type}

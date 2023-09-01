@@ -1,7 +1,7 @@
 import { ButtonProps, TextFieldProps } from "@mui/material";
 
 // =========== input properties =========
-export interface inputFieldPasswordProps {
+export interface InputFieldPasswordProps {
   name: string;
   value: string;
   width?: string;
@@ -12,7 +12,7 @@ export interface inputFieldPasswordProps {
   label?: string;
 }
 
-export interface inputTextFieldProps extends Omit<TextFieldProps, "size"> {
+export interface InputTextFieldProps extends Omit<TextFieldProps, "size"> {
   value?: string;
   width?: string;
   size?: "small" | "medium";
@@ -26,8 +26,8 @@ export interface inputTextFieldProps extends Omit<TextFieldProps, "size"> {
   maxLength?: number;
   placeholder?: string;
 }
-// ============ loading ==============
-export interface loadingButtonProps extends Omit<ButtonProps, "size"> {
+// ============ button ==============
+export interface LoadingButtonProps extends Omit<ButtonProps, "size"> {
   loadingSize?: number;
   isLoading?: boolean;
   clsName?: string;
@@ -37,18 +37,18 @@ export interface loadingButtonProps extends Omit<ButtonProps, "size"> {
 
 // ============= dropdwon ==============
 
-type dropDownOptions = {
+type DropDownOptions = {
   id: string | number;
   label: string;
   value: string;
 };
 
-export interface dropDownProps {
+export interface DropDownProps {
   label: string;
   value: string;
   name: string;
   width: number | string;
-  options: dropDownOptions[];
+  options: DropDownOptions[];
   size: "small" | "medium";
   onChange: (target: { value: string; name: string }) => void;
 }

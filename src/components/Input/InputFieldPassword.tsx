@@ -1,5 +1,5 @@
 import React from "react";
-import { inputFieldPasswordProps } from "@/types/others";
+import { InputFieldPasswordProps } from "@/types/others";
 // mui comp
 import {
   FormControl,
@@ -22,7 +22,7 @@ function InputFieldPassword({
   minLength = 4,
   maxLength = 8,
   label = "Password",
-}: inputFieldPasswordProps) {
+}: InputFieldPasswordProps) {
   // =========== USE_STATE HOOK ===============
   const [showPassword, setShowPassword] = React.useState(false);
 

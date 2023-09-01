@@ -1,6 +1,6 @@
 import { Backdrop, CircularProgress } from "@mui/material";
 
-interface fullScreenLoaderProps {
+interface FullScreenLoaderProps {
   title: string;
   open: boolean;
   handleClose: () => void;
@@ -10,7 +10,7 @@ const FullScreenLoader = ({
   title = "loading",
   open = false,
   handleClose = () => {},
-}: fullScreenLoaderProps) => {
+}: FullScreenLoaderProps) => {
   return (
     <Backdrop
       sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}

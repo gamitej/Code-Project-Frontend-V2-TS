@@ -10,6 +10,7 @@ export default {
         darkText: "#2A3942",
         lightText: "#D1D6D8",
         mediumText: "#4C585F",
+        modal: "#222E35",
         // other theme color
         pink: "#ff8fab",
         green: "#80ed99",
