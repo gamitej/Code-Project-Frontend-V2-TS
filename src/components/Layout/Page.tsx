@@ -1,14 +1,15 @@
 import React from "react";
+import { Sidebar } from "..";
 
 interface PageProps {
-  children: React.ReactElement;
+  children: React.ReactNode;
   enableSidebar?: boolean;
 }
 
-const Page = ({ children }: PageProps) => {
+const Page = ({ children, enableSidebar = false }: PageProps) => {
   return (
-    <div>
-      <div>sidebar</div>
+    <div className="mt-5 mx-5 lg:mt-6">
+      <Sidebar enableSidebar={enableSidebar} />
       <div className="h-full">{children}</div>
     </div>
   );

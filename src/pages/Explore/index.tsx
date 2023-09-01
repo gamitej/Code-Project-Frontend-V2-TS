@@ -1,8 +1,10 @@
+import { Page } from "@/components";
+
 const Explore = () => {
   return (
-    <div>
+    <Page>
       <div className="text-green">Explore</div>
-    </div>
+    </Page>
   );
 };
 
