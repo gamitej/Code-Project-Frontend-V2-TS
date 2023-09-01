@@ -2,7 +2,7 @@ import { Suspense } from "react";
 import { Toaster } from "react-hot-toast";
 import Router from "@/routes/Router";
 // comp
-import { Header } from "@/components";
+import { Header, ScrollToTopButton } from "@/components";
 // store
 import { useAuth } from "@/store/auth/useAuth";
 
@@ -14,15 +14,21 @@ function App() {
     navbarHeight: "5",
   };
 
-  // useEffect(() => {
-  //   document.documentElement.style.setProperty("--background", "black");
-  // }, []);
+  // Scroll to the top of the page when the button is clicked
+  const handleScrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
 
   /**
    * JSX
    */
   return (
-    <div>
+    <div onScroll={handleScrollToTop}>
+      {/* scroll to top btn */}
+      <ScrollToTopButton handleScrollToTop={handleScrollToTop} />
       <Toaster position="top-center" reverseOrder={false} />
       {/* Navbar */}
       <Header {...AppProps} />
@@ -47,3 +53,7 @@ const Loading = () => {
 };
 
 export default App;
+
+// useEffect(() => {
+//   document.documentElement.style.setProperty("--background", "black");
+// }, []);

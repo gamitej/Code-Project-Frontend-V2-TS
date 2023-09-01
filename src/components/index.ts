@@ -1,5 +1,6 @@
 // button
 import LoadingButton from "./Button/LoadingButton";
+import ScrollToTopButton from "./Button/ScrollToTopButton";
 // input
 import InputTextField from "./Input/InputTextField";
 import InputFieldPassword from "./Input/InputFieldPassword";
@@ -16,4 +17,5 @@ export {
   Header,
   Sidebar,
   Page,
+  ScrollToTopButton,
 };
