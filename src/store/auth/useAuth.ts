@@ -32,18 +32,19 @@ export const useAuth = create<AuthState>((set) => ({
     set((state) => ({ ...state, isLoggedIn: false }));
   },
   // login
-  handleLogin: async (data) => {
+  handleLogin: async (req) => {
     set((state) => ({ ...state, isLoading: true }));
-    const { message, error, user } = await LoginApi(data);
+    const { message, error, data } = await LoginApi(req);
+    console.log(message, error);
     if (!error) {
       set((state) => ({
         ...state,
         isLoading: false,
         isLoggedIn: true,
-        userInfo: user,
+        userInfo: data,
       }));
       // setting session data
-      setSession(USER_SESSION, user);
+      setSession(USER_SESSION, data);
     } else {
       toast.error(message, { duration: 1200 });
       set((state) => ({
@@ -54,18 +55,18 @@ export const useAuth = create<AuthState>((set) => ({
     }
   },
   // sign-up
-  handleSignUp: async (data) => {
+  handleSignUp: async (req) => {
     set((state) => ({ ...state, isLoading: true }));
-    const { message, error, user } = await SignUpApi(data);
+    const { message, error, data } = await SignUpApi(req);
     if (!error) {
       set((state) => ({
         ...state,
         isLoading: false,
         isLoggedIn: true,
-        userInfo: user,
+        userInfo: data,
       }));
       // setting session data
-      setSession(USER_SESSION, user);
+      setSession(USER_SESSION, data);
     } else {
       toast.error(message, { duration: 1200 });
       set((state) => ({

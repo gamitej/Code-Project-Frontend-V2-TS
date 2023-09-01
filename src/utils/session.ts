@@ -6,7 +6,7 @@ export const setSession = (name: string, data: any) => {
 // get data from session storage
 export const getSession = (name: string) => {
   const data = window.sessionStorage.getItem(name);
-  if (data) return JSON.parse(data);
+  if (data !== null) return JSON.parse(data);
 };
 
 // check if data is present in session storage

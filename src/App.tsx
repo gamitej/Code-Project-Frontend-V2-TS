@@ -34,7 +34,7 @@ function App() {
 const Loading = () => {
   return (
     <div
-      className="h-[100vh] w-full flex justify-center
+      className="h-[calc(100vh-5rem)] w-full flex justify-center
    items-center text-white text-xl"
     >
       loading...
