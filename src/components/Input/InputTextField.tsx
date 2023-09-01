@@ -1,5 +1,19 @@
-import { TextField } from "@mui/material";
-import { InputTextFieldProps } from "@/types/others";
+import { TextField, TextFieldProps } from "@mui/material";
+
+interface InputTextFieldProps extends Omit<TextFieldProps, "size"> {
+  value?: string;
+  width?: string;
+  size?: "small" | "medium";
+  name?: string;
+  label?: string;
+  variant?: "standard" | "filled" | "outlined";
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  required?: boolean;
+  type?: string;
+  minLength?: number;
+  maxLength?: number;
+  placeholder?: string;
+}
 
 const InputTextField = ({
   value = "",

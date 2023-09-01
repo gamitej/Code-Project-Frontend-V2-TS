@@ -1,4 +1,3 @@
-import { dropDownProps } from "@/types/others";
 import {
   FormControl,
   InputLabel,
@@ -6,6 +5,22 @@ import {
   Select,
   SelectChangeEvent,
 } from "@mui/material";
+
+type DropDownOptions = {
+  id: string | number;
+  label: string;
+  value: string;
+};
+
+interface DropDownProps {
+  label: string;
+  value: string;
+  name: string;
+  width: number | string;
+  options: DropDownOptions[];
+  size: "small" | "medium";
+  onChange: (target: { value: string; name: string }) => void;
+}
 
 const Dropdown = ({
   label,
@@ -15,7 +30,7 @@ const Dropdown = ({
   options = [],
   size = "small",
   onChange = () => {},
-}: dropDownProps) => {
+}: DropDownProps) => {
   const handleChange = (e: SelectChangeEvent<string>, name: string) => {
     const value = e.target.value;
     const target = { value, name };

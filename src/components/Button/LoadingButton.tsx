@@ -1,6 +1,13 @@
 import { useGlobal } from "@/store/global/useGlobal";
-import { LoadingButtonProps } from "@/types/others";
-import { CircularProgress } from "@mui/material";
+import { ButtonProps, CircularProgress } from "@mui/material";
+
+interface LoadingButtonProps extends Omit<ButtonProps, "size"> {
+  loadingSize?: number;
+  isLoading?: boolean;
+  clsName?: string;
+  label?: string;
+  type?: "submit";
+}
 
 const LoadingButton: React.FC<LoadingButtonProps> = ({
   loadingSize = 15,

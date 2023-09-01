@@ -1,5 +1,4 @@
 import React from "react";
-import { InputFieldPasswordProps } from "@/types/others";
 // mui comp
 import {
   FormControl,
@@ -12,6 +11,17 @@ import {
 // mui icons
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
+
+interface InputFieldPasswordProps {
+  name: string;
+  value: string;
+  width?: string;
+  minLength?: number;
+  maxLength?: number;
+  placeholder: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  label?: string;
+}
 
 function InputFieldPassword({
   width = "80%",
