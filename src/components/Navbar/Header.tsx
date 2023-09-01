@@ -1,8 +1,10 @@
+import { useAuth } from "@/store/auth/useAuth";
 import { useGlobal } from "@/store/global/useGlobal";
 import { AppAuth } from "@/types/pages";
 
 const Header = ({ navbarHeight }: AppAuth) => {
   const { colorShades } = useGlobal();
+  const { isLoggedIn } = useAuth();
 
   return (
     <div
@@ -10,14 +12,21 @@ const Header = ({ navbarHeight }: AppAuth) => {
       style={{ height: `${navbarHeight}rem` }}
     >
       <div>
-        <h2
-          className="text-white font-semibold text-2xl"
-          style={{ color: colorShades }}
-        >
+        <h2 className={`font-semibold text-2xl`} style={{ color: colorShades }}>
           Code
         </h2>
       </div>
-      <div className="text-white font-semibold text-xl">logout</div>
+      <div className="text-md">
+        <button
+          className={`text-black px-3 py-1 rounded-sm shadow-md`}
+          style={{
+            backgroundColor: colorShades,
+            display: isLoggedIn ? "block" : "none",
+          }}
+        >
+          Logout
+        </button>
+      </div>
     </div>
   );
 };

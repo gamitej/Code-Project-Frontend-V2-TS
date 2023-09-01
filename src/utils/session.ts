@@ -1,5 +1,5 @@
 // set data in session storage
-export const setSession = (name: string, data: any) => {
+export const setSession = (name: string, data: string | object) => {
   window.sessionStorage.setItem(name, JSON.stringify(data));
 };
 

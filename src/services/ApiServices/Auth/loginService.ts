@@ -1,6 +1,6 @@
-import config from "../../config.js";
-import http from "../../httpServices/httpServices.js";
-import { ErrorHandlerApi } from "../../httpServices/errorHandler.js";
+import config from "@/services/config";
+import http from "@/services/httpServices/httpServices";
+import { ErrorHandlerApi } from "@/services/httpServices/errorHandler";
 
 const endpoint = config.baseUrl;
 
