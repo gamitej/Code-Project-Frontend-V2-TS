@@ -34,7 +34,7 @@ function MenuModal({
         id="account-menu"
         open={open}
         onClose={handleClose}
-        onClick={handleClose}
+        // onClick={handleClose}
         PaperProps={{
           sx: { backgroundColor: "#4C585F" }, // Set the menu's background color to black
         }}
