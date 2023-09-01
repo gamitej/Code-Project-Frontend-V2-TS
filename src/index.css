@@ -2,6 +2,7 @@
 
 :root {
   --background: #111b21;
+  --scrollBarColor: #4c585f;
 }
 
 html,
@@ -17,7 +18,7 @@ body,
 /*  ========= MAIN SCROLL BAR START ==========  */
 
 ::-webkit-scrollbar {
-  width: 5px; /* width of the entire scrollbar */
+  width: 4px; /* width of the entire scrollbar */
 }
 
 ::-webkit-scrollbar-track {
@@ -25,9 +26,8 @@ body,
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: lightgray; /* color of the scroll thumb */
-  border-radius: 5px; /* roundness of the scroll thumb */
-  border: 1px solid lightgrey; /* creates padding around scroll thumb */
+  background-color: var(--scrollBarColor); /* color of the scroll thumb */
+  border-radius: 2px; /* roundness of the scroll thumb */
 }
 
 /*  ========= MAIN SCROLL BAR END ==========  */
