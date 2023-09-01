@@ -14,6 +14,10 @@ function App() {
     navbarHeight: "5",
   };
 
+  // useEffect(() => {
+  //   document.documentElement.style.setProperty("--background", "black");
+  // }, []);
+
   /**
    * JSX
    */

@@ -7,4 +7,6 @@ export const colorLists = {
   mustard: "#fb8500",
   mahandi: "#90a955",
   navyBlue: "#0077b6",
+  golden: "#edc531",
+  yellow: "#ffff3f",
 };
