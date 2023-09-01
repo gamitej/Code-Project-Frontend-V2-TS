@@ -10,8 +10,7 @@ import {
   removeSession,
   setSession,
 } from "@/utils/session";
-
-const USER_SESSION = "USER";
+import { userSession } from "@/utils/nameMapping.json";
 
 interface AuthState {
   isLoggedIn: boolean;
@@ -23,12 +22,12 @@ interface AuthState {
 
 export const useAuth = create<AuthState>((set) => ({
   // variables
-  isLoggedIn: getSessionInfoBool(USER_SESSION) || false,
-  userInfo: getSession(USER_SESSION) || {},
+  isLoggedIn: getSessionInfoBool(userSession) || false,
+  userInfo: getSession(userSession) || {},
   isLoading: false,
   // logout
   handleLogout: () => {
-    removeSession(USER_SESSION);
+    removeSession(userSession);
     set((state) => ({ ...state, isLoggedIn: false }));
   },
   // login
@@ -44,7 +43,7 @@ export const useAuth = create<AuthState>((set) => ({
         userInfo: data,
       }));
       // setting session data
-      setSession(USER_SESSION, data);
+      setSession(userSession, data);
     } else {
       toast.error(message, { duration: 1200 });
       set((state) => ({
@@ -66,7 +65,7 @@ export const useAuth = create<AuthState>((set) => ({
         userInfo: data,
       }));
       // setting session data
-      setSession(USER_SESSION, data);
+      setSession(userSession, data);
     } else {
       toast.error(message, { duration: 1200 });
       set((state) => ({
