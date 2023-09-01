@@ -1,5 +1,6 @@
 import { ButtonProps, TextFieldProps } from "@mui/material";
 
+// =========== input properties =========
 export interface inputFieldPasswordProps {
   name: string;
   value: string;
@@ -25,11 +26,29 @@ export interface inputTextFieldProps extends Omit<TextFieldProps, "size"> {
   maxLength?: number;
   placeholder?: string;
 }
-
+// ============ loading ==============
 export interface loadingButtonProps extends Omit<ButtonProps, "size"> {
   loadingSize?: number;
   isLoading?: boolean;
   clsName?: string;
   label?: string;
   type?: "submit";
+}
+
+// ============= dropdwon ==============
+
+type dropDownOptions = {
+  id: string | number;
+  label: string;
+  value: string;
+};
+
+export interface dropDownProps {
+  label: string;
+  value: string;
+  name: string;
+  width: number | string;
+  options: dropDownOptions[];
+  size: "small" | "medium";
+  onChange: (target: { value: string; name: string }) => void;
 }
