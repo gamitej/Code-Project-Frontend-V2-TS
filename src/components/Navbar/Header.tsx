@@ -1,10 +1,11 @@
 import { useAuth } from "@/store/auth/useAuth";
 import { useGlobal } from "@/store/global/useGlobal";
 import { AppAuth } from "@/types/pages";
+import HeaderColorPalette from "./comp/HeaderColorPalette";
 
 const Header = ({ navbarHeight }: AppAuth) => {
-  const { colorShades } = useGlobal();
-  const { isLoggedIn } = useAuth();
+  const { colorShades, setColorShades } = useGlobal();
+  const { isLoggedIn, handleLogout } = useAuth();
 
   return (
     <div
@@ -16,8 +17,15 @@ const Header = ({ navbarHeight }: AppAuth) => {
           Code
         </h2>
       </div>
-      <div className="text-md">
+      {/* ===== header end ======= */}
+      <div className="flex justify-center items-center w-[8rem] gap-x-4">
+        <HeaderColorPalette
+          colorShades={colorShades}
+          setColorShades={setColorShades}
+        />
+        {/* logout */}
         <button
+          onClick={handleLogout}
           className={`text-black px-3 py-1 rounded-sm shadow-md`}
           style={{
             backgroundColor: colorShades,

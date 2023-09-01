@@ -4,10 +4,10 @@ import Menu from "@mui/material/Menu";
 interface MenuModalProps {
   children: React.ReactNode;
   component: React.ReactElement;
-  horizontal: "right";
+  horizontal?: "right" | "left" | "center";
 }
 
-export default function MenuModal({
+function MenuModal({
   children,
   component,
   horizontal = "right",
@@ -36,7 +36,7 @@ export default function MenuModal({
         onClose={handleClose}
         onClick={handleClose}
         PaperProps={{
-          sx: { backgroundColor: "#202C33" }, // Set the menu's background color to black
+          sx: { backgroundColor: "#4C585F" }, // Set the menu's background color to black
         }}
         transformOrigin={{ horizontal: horizontal, vertical: "top" }}
         anchorOrigin={{ horizontal: horizontal, vertical: "bottom" }}
@@ -46,3 +46,5 @@ export default function MenuModal({
     </React.Fragment>
   );
 }
+
+export default MenuModal;

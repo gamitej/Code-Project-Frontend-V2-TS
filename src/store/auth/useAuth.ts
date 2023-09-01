@@ -18,6 +18,7 @@ interface AuthState {
   isLoading: boolean;
   handleLogin: (data: object) => void;
   handleSignUp: (data: object) => void;
+  handleLogout: () => void;
 }
 
 export const useAuth = create<AuthState>((set) => ({
