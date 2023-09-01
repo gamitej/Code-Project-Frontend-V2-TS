@@ -1,6 +1,6 @@
 import config from "@/services/config";
 import http from "@/services/httpServices/httpServices";
-import { ErrorHandlerApi } from "@/services/httpServices/errorHandler";
+// import { ErrorHandlerApi } from "@/services/httpServices/errorHandler";
 import { getSession } from "@/utils/session";
 import { userSession } from "@/utils/nameMapping.json";
 
@@ -9,12 +9,8 @@ const endpoint: string = config.baseUrl;
 const { id, token } = getSession(userSession) as { id: string; token: string };
 
 export async function getExploreTopices() {
-  try {
-    const { data } = await http.get(`${endpoint}/topics?id=${id}`, {
-      headers: { Authorization: `Bearer ${token}` },
-    });
-    return data;
-  } catch (error) {
-    return ErrorHandlerApi(error);
-  }
+  const { data } = await http.get(`${endpoint}/topics?id=${id}`, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+  return data;
 }
