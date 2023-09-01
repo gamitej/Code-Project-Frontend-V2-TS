@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
+import { useGlobal } from "@/store/global/useGlobal";
+import ArrowBackIosNewSharpIcon from "@mui/icons-material/ArrowBackIosNewSharp";
 
 type ScrollToTopPorps = {
   handleScrollToTop: () => void;
 };
 
 const ScrollToTopButton = ({ handleScrollToTop }: ScrollToTopPorps) => {
+  const { colorShades } = useGlobal();
   const [showScrollToTop, setShowScrollToTop] = useState<boolean>(false);
 
   useEffect(() => {
@@ -34,10 +37,18 @@ const ScrollToTopButton = ({ handleScrollToTop }: ScrollToTopPorps) => {
       {showScrollToTop && (
         <button
           id="scrollToTopBtn"
-          className="fixed z-[100] bottom-6 right-8 rounded-full p-2 bg-red-300"
+          className="fixed z-[100] bottom-6 right-2 rounded-full p-3 shadow-xl"
           onClick={handleScrollToTop}
+          style={{
+            backgroundColor: colorShades,
+          }}
         >
-          top
+          <ArrowBackIosNewSharpIcon
+            className="rotate-90"
+            style={{
+              fontSize: "1.5rem",
+            }}
+          />
         </button>
       )}
     </React.Fragment>
