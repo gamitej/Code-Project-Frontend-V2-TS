@@ -41,8 +41,11 @@ const Page = ({
       }  mt-5 mx-5 lg:mt-6`}
     >
       <Sidebar enableSidebar={enableSidebar} />
-      <div className="h-full">{children}</div>
-      <br />
+      <div className="h-full">
+        {children}
+        <br />
+        <br />
+      </div>
     </div>
   );
 };
