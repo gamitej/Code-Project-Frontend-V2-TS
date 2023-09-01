@@ -5,11 +5,10 @@ import { getSession } from "@/utils/session";
 import { userSession } from "@/utils/nameMapping.json";
 
 const endpoint: string = config.baseUrl;
+// get details from session storage
+const { id, token } = getSession(userSession);
 
 export async function getExploreTopices() {
-  // get details from session storage
-  const { id, token } = getSession(userSession);
-
   try {
     const { data } = await http.get(`${endpoint}/topics?id=${id}`, {
       headers: { Authorization: `Bearer ${token}` },
