@@ -6,7 +6,7 @@ import { userSession } from "@/utils/nameMapping.json";
 
 const endpoint: string = config.baseUrl;
 // get details from session storage
-const { id, token } = getSession(userSession);
+const { id, token } = getSession(userSession) as { id: string; token: string };
 
 export async function getExploreTopices() {
   try {
