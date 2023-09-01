@@ -1,4 +1,6 @@
 import { create } from "zustand";
+import { colorSession } from "@/utils/nameMapping.json";
+import { getSession, setSession } from "@/utils/session";
 
 interface GlobalState {
   colorShades: string;
@@ -6,8 +8,9 @@ interface GlobalState {
 }
 
 export const useGlobal = create<GlobalState>((set) => ({
-  colorShades: "#e9c46a",
+  colorShades: getSession(colorSession) || "#e9c46a",
   setColorShades: (color) => {
+    setSession(colorSession, color);
     set((state) => ({ ...state, colorShades: color }));
   },
 }));
