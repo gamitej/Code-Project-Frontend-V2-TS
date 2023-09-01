@@ -12,5 +12,5 @@ export async function getExploreTopices() {
   const { data } = await http.get(`${endpoint}/topics?id=${id}`, {
     headers: { Authorization: `Bearer ${token}` },
   });
-  return data;
+  return data.data;
 }

@@ -2,10 +2,11 @@ import { Page } from "@/components";
 import ExploreContent from "./ExploreContent";
 import { useQuery } from "@tanstack/react-query";
 import { getExploreTopices } from "@/services";
+import { ExploreTopicsData } from "@/types/pages";
 
 const Explore = () => {
   const {
-    data: exploreData = [],
+    data: exploreData = {},
     isLoading,
     error,
   } = useQuery({
@@ -16,9 +17,7 @@ const Explore = () => {
     },
   });
 
-  const { data: topicsData = [] } = exploreData;
-
-  console.log(topicsData);
+  const { data: topicsData = [], onGoingTopic = {} } = exploreData;
 
   if (isLoading) return <div>Loading...</div>;
 
@@ -32,11 +31,16 @@ const Explore = () => {
         {/* HEADING */}
         <div className="flex flex-col justify-center items-center gap-y-4">
           <h3 className="text-white">Explore</h3>
-          <p className="text-white">ongoing</p>
+          {onGoingTopic && (
+            <p className="text-white capitalize">{onGoingTopic.data}</p>
+          )}
         </div>
         {/* CONTENT */}
-        {/* {topicsData?.map(())} */}
-        <ExploreContent />
+        <div className="grid grid-cols-12 gap-8">
+          {topicsData?.map((items: ExploreTopicsData, idx: number) => (
+            <ExploreContent key={idx} {...items} />
+          ))}
+        </div>
       </div>
     </Page>
   );

@@ -26,3 +26,12 @@ export interface LoginProps extends FooterProps {
   isLoading: boolean;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
+
+// =============  EXPLORE =================
+
+export type ExploreTopicsData = {
+  solved: number;
+  total: number;
+  urlTitle: string;
+  title: string;
+};
