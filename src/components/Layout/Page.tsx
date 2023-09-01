@@ -16,6 +16,7 @@ const Page = ({
 }: PageProps) => {
   const [animate, setAnimate] = useState<boolean>(true);
 
+  // page transition animation
   useEffect(() => {
     const timeout = setTimeout(() => {
       setAnimate(false);
@@ -23,7 +24,7 @@ const Page = ({
 
     return () => {
       clearTimeout(timeout);
-    }; // Clear the timeout on unmount
+    };
   }, []);
 
   if (loading) return <div className="text-white">loading...</div>;
