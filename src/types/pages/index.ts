@@ -29,9 +29,15 @@ export interface LoginProps extends FooterProps {
 
 // =============  EXPLORE =================
 
+type onGoingTopicType = {
+  error: boolean;
+  data: string;
+};
+
 export type ExploreTopicsData = {
   solved: number;
   total: number;
   urlTitle: string;
   title: string;
+  onGoingTopic: onGoingTopicType | undefined;
 };

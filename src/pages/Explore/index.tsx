@@ -37,7 +37,7 @@ const Explore = () => {
         {/* CONTENT */}
         <div className="grid grid-cols-12 gap-8">
           {topicsData?.map((items: ExploreTopicsData, idx: number) => (
-            <ExploreContent key={idx} {...items} />
+            <ExploreContent key={idx} {...items} onGoingTopic={onGoingTopic} />
           ))}
         </div>
       </div>
