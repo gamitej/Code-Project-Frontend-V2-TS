@@ -1,5 +1,5 @@
 import MenuModal from "@/components/Modal/MenuModal";
-import { colorLists } from "@/data/componentData";
+import { colorLists } from "@/utils/componentData";
 import ColorLensOutlinedIcon from "@mui/icons-material/ColorLensOutlined";
 import DoneOutlinedIcon from "@mui/icons-material/DoneOutlined";
 
