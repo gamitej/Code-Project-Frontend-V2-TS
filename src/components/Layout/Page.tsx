@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Sidebar } from "..";
 
 interface PageProps {
@@ -14,6 +14,18 @@ const Page = ({
   loading = false,
   error,
 }: PageProps) => {
+  const [animate, setAnimate] = useState<boolean>(true);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setAnimate(false);
+    }, 0);
+
+    return () => {
+      clearTimeout(timeout);
+    }; // Clear the timeout on unmount
+  }, []);
+
   if (loading) return <div className="text-white">loading...</div>;
 
   if (error) return <div className="text-white">Error occured</div>;
@@ -22,7 +34,11 @@ const Page = ({
    * TSX
    */
   return (
-    <div className="mt-5  mx-5 lg:mt-6">
+    <div
+      className={`PAGE__TRANSITION ${
+        animate ? "animate" : ""
+      }  mt-5 mx-5 lg:mt-6`}
+    >
       <Sidebar enableSidebar={enableSidebar} />
       <div className="h-full">{children}</div>
       <br />
