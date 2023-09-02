@@ -9,10 +9,12 @@ import { getSelectedTopicData } from "@/services";
 import { SelectedTopicData, TopicName } from "@/types/pages";
 import topicName from "@/utils/nameMapping.json";
 import Questions from "./Questions";
+import { useAuth } from "@/store/auth/useAuth";
 
 const Topic = () => {
   const { topic } = useParams();
   const { colorShades } = useGlobal();
+  const { userInfo } = useAuth();
 
   const topicDisplayName = topic as keyof TopicName;
 
@@ -23,8 +25,9 @@ const Topic = () => {
     isLoading,
     error,
   } = useQuery<SelectedTopicData[], Error>({
-    queryKey: ["selectedTopic", topic || ""],
-    queryFn: () => getSelectedTopicData(topic || ""),
+    queryKey: ["selectedTopic", userInfo.id, userInfo.token, topic || ""],
+    queryFn: () =>
+      getSelectedTopicData(userInfo.id, userInfo.token, topic || ""),
   });
 
   /**

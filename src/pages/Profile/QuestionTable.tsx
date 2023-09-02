@@ -12,7 +12,6 @@ const QuestionTable = ({
 }: {
   questionsData: QuestionsData[];
 }) => {
-  const darkMode = true;
   const { colorShades } = useGlobal();
 
   // sort the questions data by date
@@ -51,7 +50,7 @@ const QuestionTable = ({
       {/* HEADER */}
       {quesData?.length > 0 && (
         <div className="h-full overflow-auto w-full">
-          <div className="grid grid-cols-9 mt-3 h-[8%] bg-darkText items-center p-3 font-semibold text-lightText sticky top-0">
+          <div className="grid grid-cols-9 mt-0 h-[4rem] bg-darkText items-center p-3 font-semibold text-lightText sticky top-0">
             <div className="col-span-2 capitalize text-xl">
               <h1>topic</h1>
             </div>
@@ -65,11 +64,11 @@ const QuestionTable = ({
               <h1>level</h1>
             </div>
           </div>
-          <Divider sx={{ backgroundColor: darkMode ? "silver" : "" }} />
+          <Divider sx={{ backgroundColor: colorShades }} />
           {/* DATA */}
           {quesData?.map((item: QuestionsData, idx: number) => (
             <React.Fragment key={idx}>
-              <div className="grid grid-cols-9 items-center h-[10%] p-3 hover:bg-blue-100 dark:text-white dark:hover:text-slate-600  cursor-pointer font-semibold text-slate-600">
+              <div className="grid grid-cols-9 items-center h-[4rem] px-2 mt-2 hover:bg-darkText cursor-pointer font-semibold text-lightText">
                 <div className="col-span-2">
                   <p>{item?.topic}</p>
                 </div>
@@ -96,7 +95,7 @@ const QuestionTable = ({
                   </p>
                 </div>
               </div>
-              <Divider sx={{ backgroundColor: darkMode ? "silver" : "" }} />
+              {/* <Divider sx={{ backgroundColor: darkMode ? "silver" : "" }} /> */}
             </React.Fragment>
           ))}
         </div>

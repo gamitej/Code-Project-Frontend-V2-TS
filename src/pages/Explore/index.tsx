@@ -4,17 +4,20 @@ import { useQuery } from "@tanstack/react-query";
 import { getExploreTopices } from "@/services";
 import { ExploreTopicsData } from "@/types/pages";
 import { useGlobal } from "@/store/global/useGlobal";
+import { useAuth } from "@/store/auth/useAuth";
 
 const Explore = () => {
   const { colorShades } = useGlobal();
+  const { userInfo } = useAuth();
 
+  // ============= API CALL'S ==============
   const {
     data: exploreData = {},
     isLoading,
     error,
   } = useQuery({
-    queryFn: () => getExploreTopices(),
-    queryKey: ["explore"],
+    queryFn: () => getExploreTopices(userInfo.id, userInfo.token),
+    queryKey: ["explore", userInfo.id, userInfo.token],
     onError: (err: Error) => {
       console.error(err);
     },

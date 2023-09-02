@@ -13,7 +13,7 @@ import {
 import { userSession } from "@/utils/nameMapping.json";
 
 interface UserInfo {
-  id: String;
+  id: string;
   name: string;
   token: string;
 }

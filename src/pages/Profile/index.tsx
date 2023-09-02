@@ -19,6 +19,7 @@ const Profile = () => {
   } = useQuery<UserProfileData | undefined, Error>({
     queryFn: () => getUserPrfoileData(),
     queryKey: ["profile"],
+    staleTime: 0,
   });
 
   // question data api call
@@ -29,6 +30,7 @@ const Profile = () => {
   } = useQuery<QuestionsData[], Error>({
     queryFn: () => getAllQuestionsUserData(),
     queryKey: ["Questions-data"],
+    staleTime: 0,
   });
 
   /**
@@ -40,7 +42,7 @@ const Profile = () => {
         {/* head */}
         <div className="mt-5">
           <h3
-            className="RISE"
+            className="RISE capitalize"
             style={{ color: colorShades, fontSize: "2.1rem" }}
           >
             {userInfo.name}

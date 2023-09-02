@@ -10,8 +10,8 @@ interface MarkQuestion {
 }
 
 // ====== EXPLORE ALL TOPICS =========
-export async function getExploreTopices() {
-  const { id, token } = getIdToken();
+export async function getExploreTopices(id: string, token: string) {
+  // const { id, token } = getIdToken();
   const { data } = await http.get(`${endpoint}/topics?id=${id}`, {
     headers: { Authorization: `Bearer ${token}` },
   });
@@ -19,8 +19,12 @@ export async function getExploreTopices() {
 }
 
 // ====== SELECTED TOPIC QUESTIONS =========
-export async function getSelectedTopicData(topic: string) {
-  const { id, token } = getIdToken();
+export async function getSelectedTopicData(
+  id: string,
+  token: string,
+  topic: string
+) {
+  // const { id, token } = getIdToken();
 
   const { data } = await http.get(
     `${endpoint}/selected_topic?id=${id}&topic=${topic}`,
