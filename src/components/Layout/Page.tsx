@@ -39,7 +39,7 @@ const Page = ({ children, loading = false, error, clsName }: PageProps) => {
       <div className={`h-full m-auto`}>
         {children}
         <br />
-        <br />d
+        <br />
       </div>
     </div>
   );
