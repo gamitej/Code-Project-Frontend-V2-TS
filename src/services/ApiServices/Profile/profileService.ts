@@ -11,7 +11,7 @@ export async function getAllQuestionsUserData() {
   const { data } = await http.get(`${endpoint}/profile/table_data?id=${id}`, {
     headers: { Authorization: `Bearer ${token}` },
   });
-  return data.data;
+  return data.data.rows;
 }
 
 // GET USER STATUS DATA

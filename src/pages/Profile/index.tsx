@@ -1,16 +1,17 @@
 import { Page } from "@/components";
-import { getUserPrfoileData } from "@/services";
+import { getAllQuestionsUserData, getUserPrfoileData } from "@/services";
 import { useAuth } from "@/store/auth/useAuth";
 import { useGlobal } from "@/store/global/useGlobal";
-import { UserProfileData } from "@/types/pages";
+import { QuestionsData, UserProfileData } from "@/types/pages";
 import { useQuery } from "@tanstack/react-query";
+import QuestionTable from "./QuestionTable";
 
 const Profile = () => {
   const { userInfo } = useAuth();
   const { colorShades } = useGlobal();
 
-  // API CALL'S
-
+  // ========== API CALL'S ==============
+  // user profile api call
   const {
     data: profileData,
     isLoading: isPDLoading,
@@ -20,11 +21,21 @@ const Profile = () => {
     queryKey: ["profile"],
   });
 
+  // question data api call
+  const {
+    data: queData,
+    isLoading: isQDLoading,
+    error: isQDError,
+  } = useQuery<QuestionsData[], Error>({
+    queryFn: () => getAllQuestionsUserData(),
+    queryKey: ["Questions-data"],
+  });
+
   /**
    * TSX
    */
   return (
-    <Page loading={isPDLoading} error={isPDError}>
+    <Page loading={isPDLoading || isQDLoading} error={isPDError || isQDError}>
       <div className="flex flex-col justify-center items-center gap-y-4">
         {/* head */}
         <div className="mt-5">
@@ -36,8 +47,9 @@ const Profile = () => {
           </h3>
         </div>
 
+        {/* user profile */}
         <div
-          className="bg-modal mt-10 w-full m-auto sm:w-[80%] md:w-[70%] lg:w-[50%] h-[11rem] rounded-md"
+          className="bg-darkCard mt-10 w-full m-auto sm:w-[80%] md:w-[70%] lg:w-[50%] h-[11rem] rounded-md"
           style={{ boxShadow: `1px 1px 2px 0 ${colorShades}` }}
         >
           <div
@@ -78,7 +90,12 @@ const Profile = () => {
         </div>
 
         {/* history table*/}
-        <div></div>
+        <div
+          className="w-full h-[80vh] shadow-md rounded-md bg-darkCard p-2"
+          style={{ boxShadow: `1px 1px 2px 0 ${colorShades}` }}
+        >
+          <QuestionTable questionsData={queData || []} />
+        </div>
       </div>
     </Page>
   );

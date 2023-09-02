@@ -87,3 +87,13 @@ export interface UserProfileData {
   total: number;
   totalSolved: number;
 }
+
+export type QuestionsData = {
+  date?: null | Date;
+  done?: string;
+  level?: string;
+  platform?: string;
+  question?: string;
+  topic?: string;
+  url?: string;
+};
