@@ -15,11 +15,17 @@ const Header = ({ navbarHeight }: AppAuth) => {
       style={{ height: `${navbarHeight}rem` }}
     >
       <div className="flex items-center gap-x-4">
+        {/* side bar button */}
         <DehazeIcon
           onClick={() => setGlobalSideBarEnable(true)}
           className="cursor-pointer"
-          style={{ color: colorShades, fontSize: "2rem" }}
+          style={{
+            color: colorShades,
+            fontSize: "2rem",
+            display: isLoggedIn ? "block" : "none",
+          }}
         />
+        {/* title */}
         <NavLink
           to="/"
           className={`RISE`}
