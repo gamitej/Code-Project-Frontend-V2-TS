@@ -16,20 +16,19 @@ const Topic = () => {
 
   const topicDisplayName = topic as keyof TopicName;
 
-  // API CALL
+  // ==== API CALL ====
 
   const { data: selectedTopicData = [], isLoading } = useQuery({
     queryFn: () => getSelectedTopicData(topic || ""),
     queryKey: ["selectedTopic"],
   });
 
-  console.log(selectedTopicData);
-
   /**
    * TSX
    */
   return (
     <Page loading={isLoading} clsName="mt-10">
+      {/* head section */}
       <div className="flex flex-col justify-center items-center gap-y-4">
         <h3
           className="RISE capitalize"
@@ -38,6 +37,7 @@ const Topic = () => {
           {topicDisplayName ? topicName[topicDisplayName] : ""}
         </h3>
       </div>
+      {/* question display section */}
       <div className="grid grid-cols-3 gap-x-6 gap-y-8 mt-16">
         {selectedTopicData?.map((items: SelectedTopicData, idx: number) => (
           <Questions key={idx} {...items} />

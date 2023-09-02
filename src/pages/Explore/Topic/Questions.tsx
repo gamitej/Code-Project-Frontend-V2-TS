@@ -30,15 +30,15 @@ const Questions = (props: SelectedTopicData) => {
       {/* questions */}
       <div className="h-[18rem] overflow-y-auto mt-2">
         {questions.map(({ completed, url, name }, idx) => (
-          <tr key={idx} className="flex items-center md:gap-x-4 px-4 py-1">
-            <td className="text-white w-[20%]">
+          <div key={idx} className="flex items-center md:gap-x-4 px-4 py-1">
+            <div className="text-white w-[20%]">
               <TaskAltIcon
                 style={{
                   color: completed ? colorShades : "#4C585F",
                 }}
               />
-            </td>
-            <td className="w-[80%]">
+            </div>
+            <div className="w-[80%]">
               <Link
                 onMouseEnter={() => setHoveredQue(name)}
                 onMouseLeave={() => setHoveredQue("")}
@@ -51,8 +51,8 @@ const Questions = (props: SelectedTopicData) => {
               >
                 {name}
               </Link>
-            </td>
-          </tr>
+            </div>
+          </div>
         ))}
       </div>
     </div>
