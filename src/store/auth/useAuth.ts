@@ -12,9 +12,15 @@ import {
 } from "@/utils/session";
 import { userSession } from "@/utils/nameMapping.json";
 
+interface UserInfo {
+  id: String;
+  name: string;
+  token: string;
+}
+
 interface AuthState {
   isLoggedIn: boolean;
-  userInfo: object;
+  userInfo: UserInfo;
   isLoading: boolean;
   handleLogin: (data: object) => void;
   handleSignUp: (data: object) => void;
