@@ -11,7 +11,7 @@ const Header = ({ navbarHeight }: AppAuth) => {
 
   return (
     <div
-      className={`bg-darkCard shadow-md flex justify-between items-center px-5`}
+      className={`sticky top-0 z-[100] bg-darkCard shadow-md flex justify-between items-center px-5`}
       style={{ height: `${navbarHeight}rem` }}
     >
       <div className="flex items-center gap-x-4">
