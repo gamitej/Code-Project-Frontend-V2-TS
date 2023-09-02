@@ -41,3 +41,36 @@ export type ExploreTopicsData = {
   title: string;
   onGoingTopic: onGoingTopicType | undefined;
 };
+
+// Define an interface for the topicName object
+export interface TopicName {
+  userSession: string;
+  colorSession: string;
+  "tree-1": string;
+  "tree-2": string;
+  stack: string;
+  arrays: string;
+  strings: string;
+  linkedlist: string;
+  twoPointers: string;
+  heap: string;
+  binarySearch: string;
+  "dp-1": string;
+  "dp-2": string;
+  slidingWindow: string;
+  "": string;
+}
+
+export interface SelectedTopicBodyData {
+  completed: boolean;
+  id: string;
+  name: string;
+  platform: string;
+  url: string;
+}
+
+export interface SelectedTopicData {
+  body: SelectedTopicBodyData[];
+  cardTitle: string;
+  cardType: string;
+}

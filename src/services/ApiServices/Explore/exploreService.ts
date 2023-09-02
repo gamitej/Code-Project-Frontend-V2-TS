@@ -28,7 +28,7 @@ export async function getSelectedTopicData(topic: string) {
       headers: { Authorization: `Bearer ${token}` },
     }
   );
-  return data;
+  return data.data;
 }
 
 // ====== MARK QUESTIONS DONE/NOT-DONE FOR A TOPIC =========
