@@ -24,11 +24,11 @@ const Router = (props: AppAuth) => {
           path: "/explore/:topic",
           element: <Topic />,
         },
+        {
+          path: "/profile",
+          element: <Profile />,
+        },
       ],
-    },
-    {
-      path: "/profile",
-      element: <Profile />,
     },
 
     {

@@ -51,17 +51,17 @@ const QuestionTable = ({
       {/* HEADER */}
       {quesData?.length > 0 && (
         <div className="h-full overflow-auto w-full">
-          <div className="grid grid-cols-9 mt-3 h-[8%] bg-darkText items-center p-3 font-semibold text-blue-500 sticky top-0">
-            <div className="col-span-2 capitalize underline text-xl">
+          <div className="grid grid-cols-9 mt-3 h-[8%] bg-darkText items-center p-3 font-semibold text-lightText sticky top-0">
+            <div className="col-span-2 capitalize text-xl">
               <h1>topic</h1>
             </div>
-            <div className="col-span-1 capitalize underline text-xl">
+            <div className="col-span-1 capitalize text-xl">
               <h1>date</h1>
             </div>
-            <div className="col-span-5 capitalize underline text-xl">
+            <div className="col-span-5 capitalize text-xl">
               <h1>question</h1>
             </div>
-            <div className="col-span-1 capitalize underline text-xl">
+            <div className="col-span-1 capitalize text-xl">
               <h1>level</h1>
             </div>
           </div>

@@ -91,7 +91,7 @@ const Profile = () => {
 
         {/* history table*/}
         <div
-          className="w-full h-[80vh] shadow-md rounded-md bg-darkCard p-2"
+          className="w-full md:w-[80%] m-auto h-[80vh] shadow-md rounded-md bg-darkCard px-4 py-2 mt-10"
           style={{ boxShadow: `1px 1px 2px 0 ${colorShades}` }}
         >
           <QuestionTable questionsData={queData || []} />
