@@ -14,7 +14,7 @@ const Questions = (props: SelectedTopicData) => {
    */
   return (
     <div
-      className="col-span-6 md:col-span-3 lg:col-span-2 p-2 rounded-md shadow-md h-[25rem] bg-darkCard"
+      className="col-span-6 md:col-span-3 lg:col-span-2 p-2 rounded-md shadow-md h-[25rem] bg-darkCard min-w-[20rem]"
       style={{ boxShadow: `1px 1px 2px 0 ${colorShades}` }}
     >
       {/* heading */}
@@ -34,7 +34,7 @@ const Questions = (props: SelectedTopicData) => {
             key={idx}
             className="flex items-center md:gap-x-4 px-4 py-2 md:py-3"
           >
-            <div className="w-[10%]">
+            <div className="w-[4rem]">
               <TaskAltIcon
                 style={{
                   color: completed ? colorShades : "#4C585F",
@@ -43,7 +43,7 @@ const Questions = (props: SelectedTopicData) => {
                 }}
               />
             </div>
-            <div className="w-[90%]">
+            <div className="w-[calc(100%-4rem)]">
               <Link
                 onMouseEnter={() => setHoveredQue(name)}
                 onMouseLeave={() => setHoveredQue("")}
