@@ -1,17 +1,17 @@
 import config from "@/services/config";
 import http from "@/services/httpServices/httpServices";
-import { getIdToken } from "@/services/httpServices/errorHandler";
 
 const endpoint: string = config.baseUrl;
 
 interface MarkQuestion {
   question_id: string;
   topic: string;
+  id: string;
+  token: string;
 }
 
 // ====== EXPLORE ALL TOPICS =========
 export async function getExploreTopices(id: string, token: string) {
-  // const { id, token } = getIdToken();
   const { data } = await http.get(`${endpoint}/topics?id=${id}`, {
     headers: { Authorization: `Bearer ${token}` },
   });
@@ -24,8 +24,6 @@ export async function getSelectedTopicData(
   token: string,
   topic: string
 ) {
-  // const { id, token } = getIdToken();
-
   const { data } = await http.get(
     `${endpoint}/selected_topic?id=${id}&topic=${topic}`,
     {
@@ -37,8 +35,12 @@ export async function getSelectedTopicData(
 
 // ====== MARK QUESTIONS DONE/NOT-DONE FOR A TOPIC =========
 
-export async function markQuestion({ question_id, topic }: MarkQuestion) {
-  const { id, token } = getIdToken();
+export async function markQuestion({
+  id,
+  token,
+  question_id,
+  topic,
+}: MarkQuestion) {
   const apiData = {
     user_id: id,
     question_id,

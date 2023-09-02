@@ -17,8 +17,8 @@ const Profile = () => {
     isLoading: isPDLoading,
     error: isPDError,
   } = useQuery<UserProfileData | undefined, Error>({
-    queryFn: () => getUserPrfoileData(),
-    queryKey: ["profile"],
+    queryFn: () => getUserPrfoileData(userInfo.id, userInfo.token),
+    queryKey: ["profile", userInfo.id, userInfo.token],
     staleTime: 0,
   });
 
@@ -28,8 +28,8 @@ const Profile = () => {
     isLoading: isQDLoading,
     error: isQDError,
   } = useQuery<QuestionsData[], Error>({
-    queryFn: () => getAllQuestionsUserData(),
-    queryKey: ["Questions-data"],
+    queryFn: () => getAllQuestionsUserData(userInfo.id, userInfo.token),
+    queryKey: ["Questions-data", userInfo.id, userInfo.token],
     staleTime: 0,
   });
 
