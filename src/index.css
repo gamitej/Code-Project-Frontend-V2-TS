@@ -98,6 +98,8 @@ body,
   }
 }
 
+/* cs */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

@@ -6,6 +6,7 @@ interface PageProps {
   enableSidebar?: boolean;
   loading?: boolean;
   error?: Error | null;
+  clsName?: string;
 }
 
 const Page = ({
@@ -13,6 +14,7 @@ const Page = ({
   enableSidebar = false,
   loading = false,
   error,
+  clsName,
 }: PageProps) => {
   const [animate, setAnimate] = useState<boolean>(true);
 
@@ -36,7 +38,7 @@ const Page = ({
    */
   return (
     <div
-      className={`PAGE__TRANSITION ${
+      className={`PAGE__TRANSITION ${clsName} ${
         animate ? "animate" : ""
       }  mt-5 mx-5 lg:mt-6`}
     >

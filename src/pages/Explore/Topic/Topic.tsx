@@ -29,7 +29,7 @@ const Topic = () => {
    * TSX
    */
   return (
-    <Page loading={isLoading}>
+    <Page loading={isLoading} clsName="mt-10">
       <div className="flex flex-col justify-center items-center gap-y-4">
         <h3
           className="RISE capitalize"
@@ -38,12 +38,10 @@ const Topic = () => {
           {topicDisplayName ? topicName[topicDisplayName] : ""}
         </h3>
       </div>
-      <div>
-        <div className="grid grid-cols-3 gap-x-4 gap-y-8">
-          {selectedTopicData?.map((items: SelectedTopicData, idx: number) => (
-            <Questions key={idx} {...items} />
-          ))}
-        </div>
+      <div className="grid grid-cols-3 gap-x-6 gap-y-8 mt-16">
+        {selectedTopicData?.map((items: SelectedTopicData, idx: number) => (
+          <Questions key={idx} {...items} />
+        ))}
       </div>
     </Page>
   );
