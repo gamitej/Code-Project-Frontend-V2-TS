@@ -74,3 +74,16 @@ export interface SelectedTopicData {
   cardTitle: string;
   cardType: string;
 }
+
+// ===== PROFILE ========
+
+export interface UserProfileData {
+  easySolved: number;
+  easyTotal: number;
+  hardSolved: number;
+  hardTotal: number;
+  mediumSolved: number;
+  mediumTotal: number;
+  total: number;
+  totalSolved: number;
+}

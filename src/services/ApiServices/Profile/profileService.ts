@@ -11,7 +11,7 @@ export async function getAllQuestionsUserData() {
   const { data } = await http.get(`${endpoint}/profile/table_data?id=${id}`, {
     headers: { Authorization: `Bearer ${token}` },
   });
-  return data;
+  return data.data;
 }
 
 // GET USER STATUS DATA
@@ -20,5 +20,5 @@ export async function getUserPrfoileData() {
   const { data } = await http.get(`${endpoint}/profile/user_status?id=${id}`, {
     headers: { Authorization: `Bearer ${token}` },
   });
-  return data;
+  return data.data;
 }
