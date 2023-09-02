@@ -49,7 +49,7 @@ const QuestionTable = ({
       )}
       {/* HEADER */}
       {quesData?.length > 0 && (
-        <div className="h-full overflow-auto w-full">
+        <div className="h-full overflow-auto w-full min-w-[30rem]">
           <div className="grid grid-cols-9 mt-0 h-[4rem] bg-darkText items-center p-3 font-semibold text-lightText sticky top-0">
             <div className="col-span-2 capitalize text-xl">
               <h1>topic</h1>
