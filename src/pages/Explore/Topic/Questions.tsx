@@ -9,6 +9,9 @@ const Questions = (props: SelectedTopicData) => {
   const { colorShades } = useGlobal();
   const [hoveredQue, setHoveredQue] = useState<string>("");
 
+  /**
+   * TSX
+   */
   return (
     <div
       className="col-span-3 md:col-span-1 p-2 rounded-md shadow-md h-[23rem] bg-darkCard"
