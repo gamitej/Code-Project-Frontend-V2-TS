@@ -2,6 +2,7 @@ import { useAuth } from "@/store/auth/useAuth";
 import { useGlobal } from "@/store/global/useGlobal";
 import { AppAuth } from "@/types/pages";
 import HeaderColorPalette from "./comp/HeaderColorPalette";
+import { NavLink } from "react-router-dom";
 
 const Header = ({ navbarHeight }: AppAuth) => {
   const { colorShades, setColorShades } = useGlobal();
@@ -13,12 +14,13 @@ const Header = ({ navbarHeight }: AppAuth) => {
       style={{ height: `${navbarHeight}rem` }}
     >
       <div>
-        <h2
+        <NavLink
+          to="/"
           className={`RISE`}
           style={{ color: colorShades, fontSize: "1.8rem" }}
         >
           Code
-        </h2>
+        </NavLink>
       </div>
       {/* ===== header end ======= */}
       <div className="flex justify-center items-center w-[8rem] gap-x-4">
