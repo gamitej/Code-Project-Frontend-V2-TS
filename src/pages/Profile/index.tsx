@@ -62,7 +62,7 @@ const Profile = () => {
             className="h-[2rem] mt-4 text-center text-lightText text-xl"
             style={{ color: colorShades, fontWeight: 500 }}
           >
-            Total Completion -{" "}
+            Completion Status -{" "}
             <span className="text-lg">
               {profileData?.totalSolved}/{profileData?.total}
             </span>
