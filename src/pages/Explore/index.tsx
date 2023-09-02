@@ -3,8 +3,11 @@ import ExploreContent from "./ExploreContent";
 import { useQuery } from "@tanstack/react-query";
 import { getExploreTopices } from "@/services";
 import { ExploreTopicsData } from "@/types/pages";
+import { useGlobal } from "@/store/global/useGlobal";
 
 const Explore = () => {
+  const { colorShades } = useGlobal();
+
   const {
     data: exploreData = {},
     isLoading,
@@ -27,7 +30,12 @@ const Explore = () => {
       <div className="flex flex-col gap-y-16 justify-center">
         {/* HEADING */}
         <div className="flex flex-col justify-center items-center gap-y-4">
-          <h3 className="text-white font-semibold text-2xl">Explore</h3>
+          <h3
+            className="RISE"
+            style={{ color: colorShades, fontSize: "2.3rem" }}
+          >
+            Explore
+          </h3>
           {onGoingTopic && (
             <p className="text-white capitalize">
               In progress topic - {onGoingTopic.data}

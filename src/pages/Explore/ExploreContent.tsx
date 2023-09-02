@@ -2,6 +2,7 @@ import { useGlobal } from "@/store/global/useGlobal";
 import { ExploreTopicsData } from "@/types/pages";
 import EastOutlinedIcon from "@mui/icons-material/EastOutlined";
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 const ExploreContent = ({
   urlTitle,
@@ -46,10 +47,11 @@ const ExploreContent = ({
         </div>
         {/* go to topic page */}
         <div className="absolute bottom-3 right-3">
-          <button
+          <NavLink
+            to={`/explore/${urlTitle}`}
             className={`px-2 rounded-sm shadow-md ${
               hoverElement === urlTitle ? "block" : "hidden"
-            } duration-300 ease-in-out border`}
+            } duration-300 ease-in-out border cursor-pointer hover:bg-zinc-500`}
             style={{
               color: colorShades,
               borderColor: colorShades,
@@ -57,7 +59,7 @@ const ExploreContent = ({
             }}
           >
             <EastOutlinedIcon />
-          </button>
+          </NavLink>
         </div>
       </div>
     </div>

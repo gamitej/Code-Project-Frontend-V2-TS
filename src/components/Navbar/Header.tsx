@@ -13,7 +13,10 @@ const Header = ({ navbarHeight }: AppAuth) => {
       style={{ height: `${navbarHeight}rem` }}
     >
       <div>
-        <h2 className={`font-semibold text-2xl`} style={{ color: colorShades }}>
+        <h2
+          className={`RISE`}
+          style={{ color: colorShades, fontSize: "1.8rem" }}
+        >
           Code
         </h2>
       </div>

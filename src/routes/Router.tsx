@@ -7,6 +7,7 @@ import ProtectedRoute from "@/pages/Auth/ProtectedRoutes";
 
 // lazy
 const Explore = lazy(() => import("@/pages/Explore"));
+const Topic = lazy(() => import("@/pages/Explore/Topic/Topic"));
 
 const Router = (props: AppAuth) => {
   const route = useRoutes([
@@ -17,6 +18,10 @@ const Router = (props: AppAuth) => {
         {
           path: "/",
           element: <Explore />,
+        },
+        {
+          path: "/explore/:topic",
+          element: <Topic />,
         },
       ],
     },
