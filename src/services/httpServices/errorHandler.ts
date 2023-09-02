@@ -1,17 +1,23 @@
+import { getSession } from "@/utils/session";
+import { userSession } from "@/utils/nameMapping.json";
+
 const errorResponse = { message: "", error: true };
 
 export function ErrorHandlerApi(error: any) {
-  console.log(error);
-
   errorResponse.error = true;
-
+  // if netwrok error
   if (error.code === "ERR_NETWORK") {
     errorResponse.message = "Network error";
-
-    console.log(errorResponse);
-
     return errorResponse;
   }
   const { response } = error;
   return response.data;
+}
+
+export function getIdToken() {
+  const data = getSession(userSession) as {
+    id: string;
+    token: string;
+  };
+  return data;
 }

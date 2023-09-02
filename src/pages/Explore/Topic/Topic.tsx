@@ -1,6 +1,7 @@
 import { useGlobal } from "@/store/global/useGlobal";
 import { useParams } from "react-router-dom";
 import topicName from "@/utils/nameMapping.json";
+import { Page } from "@/components";
 
 // Define an interface for the topicName object
 interface TopicName {
@@ -28,8 +29,8 @@ const Topic = () => {
   const topicDisplayName = topic as keyof TopicName;
 
   return (
-    <div>
-      <div className="flex flex-col justify-center items-center gap-y-4 mt-10">
+    <Page>
+      <div className="flex flex-col justify-center items-center gap-y-4">
         <h3
           className="RISE capitalize"
           style={{ color: colorShades, fontSize: "2.3rem" }}
@@ -37,7 +38,7 @@ const Topic = () => {
           {topicDisplayName ? topicName[topicDisplayName] : ""}
         </h3>
       </div>
-    </div>
+    </Page>
   );
 };
 
