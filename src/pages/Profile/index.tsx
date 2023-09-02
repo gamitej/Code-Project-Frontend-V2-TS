@@ -1,10 +1,14 @@
+import { useQuery } from "@tanstack/react-query";
+// comp
 import { Page } from "@/components";
+import QuestionTable from "./QuestionTable";
+// services
 import { getAllQuestionsUserData, getUserPrfoileData } from "@/services";
+// store
 import { useAuth } from "@/store/auth/useAuth";
 import { useGlobal } from "@/store/global/useGlobal";
+// type
 import { QuestionsData, UserProfileData } from "@/types/pages";
-import { useQuery } from "@tanstack/react-query";
-import QuestionTable from "./QuestionTable";
 
 const Profile = () => {
   const { userInfo } = useAuth();

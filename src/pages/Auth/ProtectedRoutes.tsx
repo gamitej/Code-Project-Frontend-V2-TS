@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import { Navigate, Outlet, useLocation } from "react-router-dom";
 
 interface ProtectedRouteProps {
@@ -13,10 +12,6 @@ const ProtectedRoute = ({ isLoggedIn }: ProtectedRouteProps) => {
   ) : (
     <Outlet />
   );
-};
-
-ProtectedRoute.propTypes = {
-  isAuth: PropTypes.any,
 };
 
 export default ProtectedRoute;

@@ -1,15 +1,16 @@
 import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-// store
-import { useGlobal } from "@/store/global/useGlobal";
+// comp
 import { Page } from "@/components";
+import Questions from "./Questions";
+// store
+import { useAuth } from "@/store/auth/useAuth";
+import { useGlobal } from "@/store/global/useGlobal";
 // services
 import { getSelectedTopicData } from "@/services";
 //  utils types
-import { SelectedTopicData, TopicName } from "@/types/pages";
 import topicName from "@/utils/nameMapping.json";
-import Questions from "./Questions";
-import { useAuth } from "@/store/auth/useAuth";
+import { SelectedTopicData, TopicName } from "@/types/pages";
 
 const Topic = () => {
   const { topic } = useParams();

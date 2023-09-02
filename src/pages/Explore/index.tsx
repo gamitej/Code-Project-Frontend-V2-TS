@@ -1,10 +1,14 @@
+import { useQuery } from "@tanstack/react-query";
+// comp
 import { Page } from "@/components";
 import ExploreContent from "./ExploreContent";
-import { useQuery } from "@tanstack/react-query";
+// services
 import { getExploreTopices } from "@/services";
-import { ExploreTopicsData } from "@/types/pages";
-import { useGlobal } from "@/store/global/useGlobal";
+// store
 import { useAuth } from "@/store/auth/useAuth";
+import { useGlobal } from "@/store/global/useGlobal";
+// type
+import { ExploreTopicsData } from "@/types/pages";
 
 const Explore = () => {
   const { colorShades } = useGlobal();
@@ -40,7 +44,7 @@ const Explore = () => {
             Explore
           </h3>
           {onGoingTopic && (
-            <p className="text-white capitalize">
+            <p className="text-lightText font-medium text-lg capitalize">
               In progress topic - {onGoingTopic.data}
             </p>
           )}

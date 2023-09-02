@@ -1,11 +1,15 @@
-import { Divider } from "@mui/material";
 import React, { useMemo } from "react";
 import { Link } from "react-router-dom";
-import colorCode from "@/utils/colorCode.json";
-import { QuestionsData } from "@/types/pages";
+// libs
 import moment from "moment";
 import { orderBy } from "lodash";
+// mui
+import { Divider } from "@mui/material";
+// store
 import { useGlobal } from "@/store/global/useGlobal";
+// type-utils
+import { QuestionsData } from "@/types/pages";
+import colorCode from "@/utils/colorCode.json";
 
 const QuestionTable = ({
   questionsData,
@@ -24,7 +28,7 @@ const QuestionTable = ({
     return sortedData?.filter((item: QuestionsData) => item.done === "Yes");
   }, [questionsData]);
 
-  // format date
+  // formate date
   const formateDate = (date: Date | null) => {
     const newDate = moment(date).format("DD-MM-YYYY");
     return newDate;

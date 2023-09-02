@@ -1,8 +1,11 @@
-import { Link } from "react-router-dom";
-import { SelectedTopicData } from "@/types/pages";
-import { useGlobal } from "@/store/global/useGlobal";
-import TaskAltIcon from "@mui/icons-material/TaskAlt";
 import { useState } from "react";
+import { Link } from "react-router-dom";
+// icons
+import TaskAltIcon from "@mui/icons-material/TaskAlt";
+// store
+import { useGlobal } from "@/store/global/useGlobal";
+//type
+import { SelectedTopicData } from "@/types/pages";
 
 const Questions = (props: SelectedTopicData) => {
   const { body: questions = [], cardType } = props;

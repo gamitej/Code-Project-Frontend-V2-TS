@@ -1,8 +1,11 @@
-import { useGlobal } from "@/store/global/useGlobal";
-import { ExploreTopicsData } from "@/types/pages";
-import EastOutlinedIcon from "@mui/icons-material/EastOutlined";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+// icons
+import EastOutlinedIcon from "@mui/icons-material/EastOutlined";
+// store
+import { useGlobal } from "@/store/global/useGlobal";
+// type
+import { ExploreTopicsData } from "@/types/pages";
 
 const ExploreContent = ({
   urlTitle,

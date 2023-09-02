@@ -4,8 +4,8 @@ import {
   InputTextField,
   LoadingButton,
 } from "@/components";
-// utils
 import Footer from "./Footer";
+// type
 import { LoginProps } from "@/types/pages";
 
 const Login = ({
