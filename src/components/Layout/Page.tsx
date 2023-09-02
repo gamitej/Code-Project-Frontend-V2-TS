@@ -3,19 +3,12 @@ import { Sidebar } from "..";
 
 interface PageProps {
   children: React.ReactNode;
-  enableSidebar?: boolean;
   loading?: boolean;
   error?: Error | null;
   clsName?: string;
 }
 
-const Page = ({
-  children,
-  enableSidebar = false,
-  loading = false,
-  error,
-  clsName,
-}: PageProps) => {
+const Page = ({ children, loading = false, error, clsName }: PageProps) => {
   const [animate, setAnimate] = useState<boolean>(true);
 
   // page transition animation
@@ -40,13 +33,13 @@ const Page = ({
     <div
       className={`PAGE__TRANSITION ${clsName} ${
         animate ? "animate" : ""
-      }  mt-5 mx-5 lg:mt-6`}
+      }  mt-5 mx-5 lg:mt-6 h-full`}
     >
-      <Sidebar enableSidebar={enableSidebar} />
-      <div className="h-full">
+      <Sidebar />
+      <div className={`h-full m-auto`}>
         {children}
         <br />
-        <br />
+        <br />d
       </div>
     </div>
   );

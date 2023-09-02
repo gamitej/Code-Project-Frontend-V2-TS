@@ -3,17 +3,23 @@ import { useGlobal } from "@/store/global/useGlobal";
 import { AppAuth } from "@/types/pages";
 import HeaderColorPalette from "./comp/HeaderColorPalette";
 import { NavLink } from "react-router-dom";
+import DehazeIcon from "@mui/icons-material/Dehaze";
 
 const Header = ({ navbarHeight }: AppAuth) => {
-  const { colorShades, setColorShades } = useGlobal();
+  const { colorShades, setColorShades, setGlobalSideBarEnable } = useGlobal();
   const { isLoggedIn, handleLogout } = useAuth();
 
   return (
     <div
-      className={`bg-darkCard shadow-md flex justify-between items-center px-4`}
+      className={`bg-darkCard shadow-md flex justify-between items-center px-5`}
       style={{ height: `${navbarHeight}rem` }}
     >
-      <div>
+      <div className="flex items-center gap-x-4">
+        <DehazeIcon
+          onClick={() => setGlobalSideBarEnable(true)}
+          className="cursor-pointer"
+          style={{ color: colorShades, fontSize: "2rem" }}
+        />
         <NavLink
           to="/"
           className={`RISE`}
