@@ -9,6 +9,8 @@ import Header from "./Navbar/Header";
 import Sidebar from "./Navbar/Sidebar";
 // layout
 import Page from "./Layout/Page";
+// loading
+import FullScreenLoader from "./Loading/FullScreenLoader";
 
 export {
   LoadingButton,
@@ -17,5 +19,6 @@ export {
   Header,
   Sidebar,
   Page,
+  FullScreenLoader,
   ScrollToTopButton,
 };

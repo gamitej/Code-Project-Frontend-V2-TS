@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Sidebar } from "..";
+import { FullScreenLoader, Sidebar } from "..";
 
 interface PageProps {
   children: React.ReactNode;
   loading?: boolean;
-  error?: Error | null;
+  error?: Error | null | undefined;
   clsName?: string;
 }
 
@@ -22,7 +22,7 @@ const Page = ({ children, loading = false, error, clsName }: PageProps) => {
     };
   }, []);
 
-  if (loading) return <div className="text-white">loading...</div>;
+  if (loading) return <FullScreenLoader />;
 
   if (error) return <div className="text-white">Error occured</div>;
 

@@ -14,7 +14,7 @@ const Questions = (props: SelectedTopicData) => {
    */
   return (
     <div
-      className="col-span-3 md:col-span-1 p-2 rounded-md shadow-md h-[23rem] bg-darkCard"
+      className="col-span-6 md:col-span-3 lg:col-span-2 p-2 rounded-md shadow-md h-[25rem] bg-darkCard"
       style={{ boxShadow: `1px 1px 2px 0 ${colorShades}` }}
     >
       {/* heading */}
@@ -28,23 +28,28 @@ const Questions = (props: SelectedTopicData) => {
         <p className="text-white">(0/10)</p>
       </div>
       {/* questions */}
-      <div className="h-[18rem] overflow-y-auto mt-2">
+      <div className="h-[20rem] overflow-y-auto mt-2">
         {questions.map(({ completed, url, name }, idx) => (
-          <div key={idx} className="flex items-center md:gap-x-4 px-4 py-1">
-            <div className="text-white w-[20%]">
+          <div
+            key={idx}
+            className="flex items-center md:gap-x-4 px-4 py-2 md:py-3"
+          >
+            <div className="w-[10%]">
               <TaskAltIcon
                 style={{
                   color: completed ? colorShades : "#4C585F",
+                  cursor: "pointer",
+                  fontSize: "1.7rem",
                 }}
               />
             </div>
-            <div className="w-[80%]">
+            <div className="w-[90%]">
               <Link
                 onMouseEnter={() => setHoveredQue(name)}
                 onMouseLeave={() => setHoveredQue("")}
                 to={url}
                 target="_blank"
-                className={`text-white`}
+                className={`text-white text-lg`}
                 style={{
                   color: name === hoveredQue ? colorShades : "white",
                 }}

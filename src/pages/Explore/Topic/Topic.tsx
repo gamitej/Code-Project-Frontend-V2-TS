@@ -16,18 +16,22 @@ const Topic = () => {
 
   const topicDisplayName = topic as keyof TopicName;
 
-  // ==== API CALL ====
+  // ==== API CALL'S ====
 
-  const { data: selectedTopicData = [], isLoading } = useQuery({
+  const {
+    data: selectedTopicData = [],
+    isLoading,
+    error,
+  } = useQuery<SelectedTopicData[], Error>({
+    queryKey: ["selectedTopic", topic || ""],
     queryFn: () => getSelectedTopicData(topic || ""),
-    queryKey: ["selectedTopic"],
   });
 
   /**
    * TSX
    */
   return (
-    <Page loading={isLoading} clsName="mt-10">
+    <Page loading={isLoading} error={error} clsName="mt-10">
       {/* head section */}
       <div className="flex flex-col justify-center items-center gap-y-4">
         <h3
@@ -38,7 +42,7 @@ const Topic = () => {
         </h3>
       </div>
       {/* question display section */}
-      <div className="grid grid-cols-3 gap-x-6 gap-y-8 mt-16">
+      <div className="grid grid-cols-6 gap-x-6 gap-y-8 mt-16">
         {selectedTopicData?.map((items: SelectedTopicData, idx: number) => (
           <Questions key={idx} {...items} />
         ))}

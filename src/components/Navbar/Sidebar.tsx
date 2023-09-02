@@ -16,7 +16,8 @@ const NavButton = ({ to, isActive, colorShades, icon }: NavButtonProps) => (
     to={to}
     className="rounded-md p-1 hover:bg-zinc-500"
     style={{
-      backgroundColor: isActive ? colorShades : "white",
+      backgroundColor: isActive ? colorShades : "",
+      color: isActive ? "black" : "#D1D6D8",
     }}
   >
     {icon}
