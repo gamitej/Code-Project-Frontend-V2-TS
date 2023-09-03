@@ -15,7 +15,7 @@ export async function LoginApi(req: any) {
 
 export async function SignUpApi(req: any) {
   try {
-    const { data } = await http.post(`${endpoint}/v1/register`, req);
+    const { data } = await http.post(`${endpoint}/signup`, req);
     return data;
   } catch (error) {
     return ErrorHandlerApi(error);

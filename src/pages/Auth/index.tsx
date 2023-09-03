@@ -4,7 +4,6 @@ import { Navigate } from "react-router-dom";
 import Login from "./Login";
 // utils
 import SignUp from "./SignUp";
-import { toast } from "react-hot-toast";
 import { useAuth } from "@/store/auth/useAuth";
 import { AuthInputForm, AppAuth } from "@/types/pages";
 
@@ -24,11 +23,7 @@ const Auth = ({ isLoggedIn, navbarHeight }: AppAuth) => {
     if (switchAuth) {
       handleLogin(inputForm);
     } else {
-      if (inputForm?.password === inputForm.confirmPassword) {
-        handleSignUp(inputForm);
-      } else {
-        toast.error("Password mismatch", { duration: 1500 });
-      }
+      handleSignUp(inputForm);
     }
   };
 

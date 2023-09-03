@@ -33,14 +33,6 @@ const SignUp = ({
           value={inputForm.password || ""}
           onChange={onChange}
         />
-        <InputFieldPassword
-          width="75%"
-          name="confirmPassword"
-          placeholder="Enter password again"
-          value={inputForm.confirmPassword || ""}
-          onChange={onChange}
-          label="Confirm Password"
-        />
       </div>
       {/* footer */}
       <div className="mb-[1rem] w-full text-center">
