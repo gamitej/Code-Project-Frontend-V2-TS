@@ -51,6 +51,7 @@ const Topic = () => {
     data: selectedTopicData = [],
     isLoading,
     error,
+    isError,
   } = useQuery<SelectedTopicData[], Error>({
     queryKey: ["selectedTopic", API_DATA],
     queryFn: () => getSelectedTopicData(API_DATA),
@@ -60,7 +61,7 @@ const Topic = () => {
    * TSX
    */
   return (
-    <Page loading={isLoading} error={error}>
+    <Page loading={isLoading} errorRes={error} error={isError}>
       {/* head section */}
       <div className="flex flex-col justify-center items-center gap-y-4 mt-10">
         <h3

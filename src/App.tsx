@@ -2,7 +2,12 @@ import { Suspense } from "react";
 import { Toaster } from "react-hot-toast";
 import Router from "@/routes/Router";
 // comp
-import { FullScreenLoader, Header, ScrollToTopButton, Sidebar } from "@/components";
+import {
+  FullScreenLoader,
+  Header,
+  ScrollToTopButton,
+  Sidebar,
+} from "@/components";
 // store
 import { useAuth } from "@/store/auth/useAuth";
 
@@ -41,7 +46,3 @@ function App() {
 }
 
 export default App;
-
-// useEffect(() => {
-//   document.documentElement.style.setProperty("--background", "black");
-// }, []);

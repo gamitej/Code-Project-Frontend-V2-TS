@@ -20,6 +20,7 @@ const Explore = () => {
     data: exploreData = {},
     isLoading,
     error,
+    isError,
   } = useQuery({
     queryFn: () => getExploreTopices(userInfo),
     queryKey: ["explore", userInfo],
@@ -37,7 +38,7 @@ const Explore = () => {
    * TSX
    */
   return (
-    <Page loading={isLoading} error={error}>
+    <Page loading={isLoading} error={isError} errorRes={error}>
       <div className="flex flex-col gap-y-16 justify-center">
         {/* HEADING */}
         <div className="flex flex-col justify-center items-center gap-y-4">
@@ -49,7 +50,7 @@ const Explore = () => {
           </h3>
           {onGoingTopic && (
             <p className="text-lightText font-medium text-lg capitalize">
-              In progress topic -
+              In progress topic -{" "}
               {topicDisplayName ? topicName[topicDisplayName] : ""}
             </p>
           )}

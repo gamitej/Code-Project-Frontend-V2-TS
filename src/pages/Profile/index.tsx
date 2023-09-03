@@ -20,7 +20,8 @@ const Profile = () => {
   const {
     data: profileData,
     isLoading: isPDLoading,
-    error: isPDError,
+    isError: isPDError,
+    error: isPDerrorRes,
   } = useQuery<UserProfileData | undefined, Error>({
     queryFn: () => getUserPrfoileData(userInfo),
     queryKey: ["profile", userInfo],
@@ -31,7 +32,8 @@ const Profile = () => {
   const {
     data: queData,
     isLoading: isQDLoading,
-    error: isQDError,
+    isError: isQDError,
+    // error: isQDErrorRes,
   } = useQuery<QuestionsData[], Error>({
     queryFn: () => getAllQuestionsUserData(userInfo),
     queryKey: ["Questions-data", userInfo],
@@ -42,7 +44,11 @@ const Profile = () => {
    * TSX
    */
   return (
-    <Page loading={isPDLoading || isQDLoading} error={isPDError || isQDError}>
+    <Page
+      loading={isPDLoading || isQDLoading}
+      error={isPDError || isQDError}
+      errorRes={isPDerrorRes}
+    >
       <div className="flex flex-col justify-center items-center gap-y-4">
         {/* head */}
         <div className="mt-5">
