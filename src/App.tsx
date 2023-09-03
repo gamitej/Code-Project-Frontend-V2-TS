@@ -2,7 +2,7 @@ import { Suspense } from "react";
 import { Toaster } from "react-hot-toast";
 import Router from "@/routes/Router";
 // comp
-import { FullScreenLoader, Header, ScrollToTopButton } from "@/components";
+import { FullScreenLoader, Header, ScrollToTopButton, Sidebar } from "@/components";
 // store
 import { useAuth } from "@/store/auth/useAuth";
 
@@ -30,6 +30,7 @@ function App() {
       {/* scroll to top btn */}
       <ScrollToTopButton handleScrollToTop={handleScrollToTop} />
       <Toaster position="top-center" reverseOrder={false} />
+      <Sidebar />
       {/* Navbar */}
       <Header {...AppProps} />
       <Suspense fallback={<FullScreenLoader />}>

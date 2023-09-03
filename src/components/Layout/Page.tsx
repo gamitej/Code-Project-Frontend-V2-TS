@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { FullScreenLoader, Sidebar } from "..";
+import { FullScreenLoader } from "..";
 
 interface PageProps {
   children: React.ReactNode;
@@ -35,7 +35,6 @@ const Page = ({ children, loading = false, error, clsName }: PageProps) => {
         animate ? "animate" : ""
       }  mt-5 mx-5 lg:mt-6 h-full`}
     >
-      <Sidebar />
       <div className={`h-full m-auto`}>
         {children}
         <br />

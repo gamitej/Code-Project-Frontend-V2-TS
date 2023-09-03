@@ -25,15 +25,19 @@ const NavButton = ({ to, isActive, colorShades, icon }: NavButtonProps) => (
 );
 
 const Sidebar = () => {
-  const ref = useRef(null);
+  const ref = useRef<any>();
   const { pathname } = useLocation();
   const { globalSideBarEnable, setGlobalSideBarEnable, colorShades } =
     useGlobal();
 
   // If the menu is open and the clicked target is not within the menu, then close the menu
   useEffect(() => {
-    const checkIfClickedOutside = () => {
-      if (globalSideBarEnable && ref.current) {
+    const checkIfClickedOutside = (e: MouseEvent) => {
+      if (
+        globalSideBarEnable &&
+        ref.current &&
+        !ref.current.contains(e.target)
+      ) {
         setGlobalSideBarEnable(false);
       }
     };
