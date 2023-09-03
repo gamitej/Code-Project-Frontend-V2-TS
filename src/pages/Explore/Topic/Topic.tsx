@@ -35,9 +35,9 @@ const Topic = () => {
    * TSX
    */
   return (
-    <Page loading={isLoading} error={error} clsName="mt-10">
+    <Page loading={isLoading} error={error}>
       {/* head section */}
-      <div className="flex flex-col justify-center items-center gap-y-4">
+      <div className="flex flex-col justify-center items-center gap-y-4 mt-10">
         <h3
           className="RISE capitalize"
           style={{ color: colorShades, fontSize: "2.3rem" }}
