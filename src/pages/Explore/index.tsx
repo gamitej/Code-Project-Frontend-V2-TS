@@ -20,8 +20,8 @@ const Explore = () => {
     isLoading,
     error,
   } = useQuery({
-    queryFn: () => getExploreTopices(userInfo.id, userInfo.token),
-    queryKey: ["explore", userInfo.id, userInfo.token],
+    queryFn: () => getExploreTopices(userInfo),
+    queryKey: ["explore", userInfo],
     onError: (err: Error) => {
       console.error(err);
     },

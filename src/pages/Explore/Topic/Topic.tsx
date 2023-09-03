@@ -21,14 +21,14 @@ const Topic = () => {
 
   // ==== API CALL'S ====
 
+  const API_DATA = { ...userInfo, topic: topic || "" };
   const {
     data: selectedTopicData = [],
     isLoading,
     error,
   } = useQuery<SelectedTopicData[], Error>({
-    queryKey: ["selectedTopic", userInfo.id, userInfo.token, topic || ""],
-    queryFn: () =>
-      getSelectedTopicData(userInfo.id, userInfo.token, topic || ""),
+    queryKey: ["selectedTopic", API_DATA],
+    queryFn: () => getSelectedTopicData(API_DATA),
   });
 
   /**
