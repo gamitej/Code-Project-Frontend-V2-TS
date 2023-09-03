@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 // icons
 import TaskAltIcon from "@mui/icons-material/TaskAlt";
@@ -12,9 +12,28 @@ const Questions = ({
   cardType,
   handleMarkAsDone = () => {},
 }: SelectedTopicData) => {
-  // const { body: questions = [], cardType } = props;
   const { colorShades } = useGlobal();
   const [hoveredQue, setHoveredQue] = useState<string>("");
+
+  const totalCount = useMemo(() => {
+    let completedCount = 0;
+    let notCompletedCount = 0;
+
+    // Iterate through the array and count completed and not completed questions
+    questions.forEach((question) => {
+      if (question.completed) {
+        completedCount++;
+      } else {
+        notCompletedCount++;
+      }
+    });
+
+    if (completedCount === 0 && notCompletedCount === 0) return "Empty";
+
+    return completedCount === notCompletedCount + completedCount
+      ? "Completed"
+      : `${completedCount}/${completedCount + notCompletedCount}`;
+  }, [questions]);
 
   /**
    * TSX
@@ -32,7 +51,7 @@ const Questions = ({
         >
           {cardType}
         </h3>
-        <p className="text-white">(0/10)</p>
+        <p className="text-white">{totalCount}</p>
       </div>
       {/* questions */}
       <div className="h-[20rem] overflow-y-auto mt-2">
