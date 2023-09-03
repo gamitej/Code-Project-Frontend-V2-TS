@@ -11,11 +11,11 @@ const Header = ({ navbarHeight }: AppAuth) => {
 
   return (
     <div
-      className={`sticky top-0 z-[100] bg-darkCard shadow-md flex justify-between items-center px-5`}
+      className={`sticky top-0 z-[100] bg-darkCard shadow-md flex justify-between items-center px-5 md:px-8`}
       style={{ height: `${navbarHeight}rem` }}
     >
       <div className="flex items-center gap-x-4">
-        {/* side bar button */}
+        {/* ====== side bar button ====== */}
         <DehazeIcon
           onClick={() => setGlobalSideBarEnable(true)}
           className="cursor-pointer"
@@ -34,7 +34,7 @@ const Header = ({ navbarHeight }: AppAuth) => {
           Code
         </NavLink>
       </div>
-      {/* ===== header end ======= */}
+      {/* ====== header end ======= */}
       <div className="flex justify-center items-center w-[8rem] gap-x-4">
         <HeaderColorPalette
           colorShades={colorShades}
