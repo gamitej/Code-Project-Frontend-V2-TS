@@ -8,7 +8,8 @@ import { getExploreTopices } from "@/services";
 import { useAuth } from "@/store/auth/useAuth";
 import { useGlobal } from "@/store/global/useGlobal";
 // type
-import { ExploreTopicsData } from "@/types/pages";
+import { ExploreTopicsData, TopicName } from "@/types/pages";
+import topicName from "@/utils/nameMapping.json";
 
 const Explore = () => {
   const { colorShades } = useGlobal();
@@ -29,6 +30,9 @@ const Explore = () => {
 
   const { data: topicsData = [], onGoingTopic = {} } = exploreData;
 
+  // type definded for topic name mapping
+  const topicDisplayName = onGoingTopic.data as keyof TopicName;
+
   /**
    * TSX
    */
@@ -45,7 +49,8 @@ const Explore = () => {
           </h3>
           {onGoingTopic && (
             <p className="text-lightText font-medium text-lg capitalize">
-              In progress topic - {onGoingTopic.data}
+              In progress topic -
+              {topicDisplayName ? topicName[topicDisplayName] : ""}
             </p>
           )}
         </div>

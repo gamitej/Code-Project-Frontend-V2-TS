@@ -3,13 +3,13 @@ import http from "@/services/httpServices/httpServices";
 
 const endpoint: string = config.baseUrl;
 
-interface UserInfoData {
+export interface UserInfoApiData {
   id: string;
   token: string;
 }
 
 // ====== EXPLORE ALL TOPICS =========
-export async function getExploreTopices({ id, token }: UserInfoData) {
+export async function getExploreTopices({ id, token }: UserInfoApiData) {
   const { data } = await http.get(`${endpoint}/topics?id=${id}`, {
     headers: { Authorization: `Bearer ${token}` },
   });
@@ -18,7 +18,7 @@ export async function getExploreTopices({ id, token }: UserInfoData) {
 
 // ====== SELECTED TOPIC QUESTIONS =========
 
-interface SelectedTopicData extends UserInfoData {
+interface SelectedTopicData extends UserInfoApiData {
   topic: string;
 }
 
@@ -38,7 +38,7 @@ export async function getSelectedTopicData({
 
 // ====== MARK QUESTIONS DONE/NOT-DONE FOR A TOPIC =========
 
-interface MarkQuestion extends UserInfoData {
+interface MarkQuestion extends UserInfoApiData {
   question_id: string;
   topic: string;
 }
