@@ -7,8 +7,12 @@ import { useGlobal } from "@/store/global/useGlobal";
 //type
 import { SelectedTopicData } from "@/types/pages";
 
-const Questions = (props: SelectedTopicData) => {
-  const { body: questions = [], cardType } = props;
+const Questions = ({
+  body: questions = [],
+  cardType,
+  handleMarkAsDone = () => {},
+}: SelectedTopicData) => {
+  // const { body: questions = [], cardType } = props;
   const { colorShades } = useGlobal();
   const [hoveredQue, setHoveredQue] = useState<string>("");
 
@@ -32,13 +36,14 @@ const Questions = (props: SelectedTopicData) => {
       </div>
       {/* questions */}
       <div className="h-[20rem] overflow-y-auto mt-2">
-        {questions.map(({ completed, url, name }, idx) => (
+        {questions.map(({ completed, url, name, id }, idx) => (
           <div
             key={idx}
             className="flex items-center md:gap-x-4 px-4 py-2 hover:bg-darkText"
           >
             <div className="w-[4rem]">
               <TaskAltIcon
+                onClick={() => handleMarkAsDone(id)}
                 style={{
                   color: completed ? colorShades : "#4C585F",
                   cursor: "pointer",

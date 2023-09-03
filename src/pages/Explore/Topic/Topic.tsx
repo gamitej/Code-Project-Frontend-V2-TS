@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 // comp
 import { Page } from "@/components";
 import Questions from "./Questions";
@@ -7,20 +7,45 @@ import Questions from "./Questions";
 import { useAuth } from "@/store/auth/useAuth";
 import { useGlobal } from "@/store/global/useGlobal";
 // services
-import { getSelectedTopicData } from "@/services";
+import { getSelectedTopicData, markQuestion } from "@/services";
 //  utils types
 import topicName from "@/utils/nameMapping.json";
 import { SelectedTopicData, TopicName } from "@/types/pages";
+import { toast } from "react-hot-toast";
 
 const Topic = () => {
   const { topic } = useParams();
   const { colorShades } = useGlobal();
   const { userInfo } = useAuth();
+  const queryClient = useQueryClient();
 
   const topicDisplayName = topic as keyof TopicName;
 
-  // ==== API CALL'S ====
+  // =================== API CALL'S ======================
 
+  const markQuestionAsDoneMutation = (questionId: string) => {
+    return markQuestion({ ...userInfo, questionId, topic });
+  };
+
+  // mark question as done / not-done
+  const { mutate: markQuestionAsDone } = useMutation(
+    markQuestionAsDoneMutation,
+    {
+      onSuccess: () => {
+        toast.success("", { duration: 1200 });
+        queryClient.invalidateQueries(["selectedTopic", API_DATA]);
+      },
+      onError: () => {
+        toast.error("Something went wrong", { duration: 1300 });
+      },
+    }
+  );
+
+  const handleMarkAsDone = (questionId: string) => {
+    markQuestionAsDone(questionId);
+  };
+
+  // get selected topic data
   const API_DATA = { ...userInfo, topic: topic || "" };
   const {
     data: selectedTopicData = [],
@@ -48,7 +73,7 @@ const Topic = () => {
       {/* question display section */}
       <div className="grid grid-cols-6 gap-x-6 gap-y-8 mt-16">
         {selectedTopicData?.map((items: SelectedTopicData, idx: number) => (
-          <Questions key={idx} {...items} />
+          <Questions key={idx} {...items} handleMarkAsDone={handleMarkAsDone} />
         ))}
       </div>
     </Page>

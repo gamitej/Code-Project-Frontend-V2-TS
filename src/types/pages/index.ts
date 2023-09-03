@@ -73,6 +73,7 @@ export interface SelectedTopicData {
   body: SelectedTopicBodyData[];
   cardTitle: string;
   cardType: string;
+  handleMarkAsDone?: (id: string) => void;
 }
 
 // ===== PROFILE ========

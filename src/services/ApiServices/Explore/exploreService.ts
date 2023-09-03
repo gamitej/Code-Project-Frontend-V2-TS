@@ -39,19 +39,19 @@ export async function getSelectedTopicData({
 // ====== MARK QUESTIONS DONE/NOT-DONE FOR A TOPIC =========
 
 interface MarkQuestion extends UserInfoApiData {
-  question_id: string;
-  topic: string;
+  questionId: string;
+  topic: string | undefined;
 }
 
 export async function markQuestion({
   id,
   token,
-  question_id,
+  questionId,
   topic,
 }: MarkQuestion) {
   const apiData = {
     user_id: id,
-    question_id,
+    question_id: questionId,
     topic,
   };
   const { data } = await http.post(`${endpoint}/markQuestion`, apiData, {
