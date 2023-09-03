@@ -37,7 +37,7 @@ const ScrollToTopButton = ({ handleScrollToTop }: ScrollToTopPorps) => {
       {showScrollToTop && (
         <button
           id="scrollToTopBtn"
-          className="fixed z-[100] bottom-6 right-2 rounded-full p-3 shadow-xl"
+          className="fixed z-[100] bottom-24 right-6 rounded-full p-3 shadow-xl"
           onClick={handleScrollToTop}
           style={{
             backgroundColor: colorShades,
