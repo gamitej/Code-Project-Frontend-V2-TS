@@ -22,9 +22,9 @@ const UserProfile = ({ profileData }: UserProfileProps) => {
           {profileData?.totalSolved}/{profileData?.total}
         </span>
       </div>
-      <div className="flex items-center justify-between h-[8rem] px-8 w-[80%] m-auto">
+      <div className="flex items-center justify-between h-[8rem] px-8 w-full md:w-[80%] m-auto">
         {/* easy */}
-        <div className="relative flex flex-col items-center justify-center">
+        <div className="relative ml-4 md:ml-0 flex flex-col items-center justify-center">
           <div className="text-lightText text-xl">
             {profileData?.easySolved}/{profileData?.easyTotal}
           </div>
@@ -32,7 +32,7 @@ const UserProfile = ({ profileData }: UserProfileProps) => {
           <div className="absolute top-0 -left-4 h-[3.5rem] w-[.3rem] bg-lime-600"></div>
         </div>
         {/* medium */}
-        <div className="relative flex flex-col items-center justify-center">
+        <div className="relative ml-4 md:ml-0 flex flex-col items-center justify-center">
           <div className="text-lightText text-xl">
             {profileData?.mediumSolved}/{profileData?.mediumTotal}
           </div>
@@ -40,7 +40,7 @@ const UserProfile = ({ profileData }: UserProfileProps) => {
           <div className="absolute top-0 -left-4 h-[3.5rem] w-[.3rem] bg-yellow-600"></div>
         </div>
         {/* hard */}
-        <div className="relative flex flex-col items-center justify-center">
+        <div className="relative ml-4 md:ml-0 flex flex-col items-center justify-center">
           <div className="text-lightText text-xl">
             {profileData?.hardSolved}/{profileData?.hardTotal}
           </div>
