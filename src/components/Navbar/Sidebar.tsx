@@ -48,12 +48,12 @@ const Sidebar = ({
   useEffect(() => {
     const checkIfClickedOutside = (e: MouseEvent) => {
       if (
-        keeySidebarEnabled &&
         globalSideBarEnable &&
         ref.current &&
         !ref.current.contains(e.target)
       ) {
-        handleSidebarToggle();
+        if (keeySidebarEnabled) handleSidebarToggle();
+        else setGlobalSideBarEnable(false);
       }
     };
     document.addEventListener("mousedown", checkIfClickedOutside);
