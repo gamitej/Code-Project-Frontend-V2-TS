@@ -35,7 +35,7 @@ function App() {
       {/* scroll to top btn */}
       <ScrollToTopButton handleScrollToTop={handleScrollToTop} />
       <Toaster position="top-center" reverseOrder={false} />
-      <Sidebar />
+      <Sidebar keeySidebarEnabled />
       {/* Navbar */}
       <Header {...AppProps} />
       <Suspense fallback={<FullScreenLoader />}>

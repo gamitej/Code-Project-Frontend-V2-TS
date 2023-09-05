@@ -3,6 +3,7 @@ import { useEffect, useRef } from "react";
 import HomeIcon from "@mui/icons-material/Home";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import { NavLink, useLocation } from "react-router-dom";
+import { useAuth } from "@/store/auth/useAuth";
 
 interface NavButtonProps {
   to: string;
@@ -24,21 +25,35 @@ const NavButton = ({ to, isActive, colorShades, icon }: NavButtonProps) => (
   </NavLink>
 );
 
-const Sidebar = () => {
+const Sidebar = ({
+  keeySidebarEnabled = false,
+}: {
+  keeySidebarEnabled?: boolean;
+}) => {
   const ref = useRef<any>();
   const { pathname } = useLocation();
+  const { isLoggedIn } = useAuth();
   const { globalSideBarEnable, setGlobalSideBarEnable, colorShades } =
     useGlobal();
+
+  // sidebar toggle event handler
+  const handleSidebarToggle = () => {
+    if (keeySidebarEnabled && isLoggedIn) setGlobalSideBarEnable(true);
+    else {
+      setGlobalSideBarEnable(false);
+    }
+  };
 
   // If the menu is open and the clicked target is not within the menu, then close the menu
   useEffect(() => {
     const checkIfClickedOutside = (e: MouseEvent) => {
       if (
+        keeySidebarEnabled &&
         globalSideBarEnable &&
         ref.current &&
         !ref.current.contains(e.target)
       ) {
-        setGlobalSideBarEnable(false);
+        handleSidebarToggle();
       }
     };
     document.addEventListener("mousedown", checkIfClickedOutside);
@@ -48,6 +63,10 @@ const Sidebar = () => {
       document.removeEventListener("mousedown", checkIfClickedOutside);
     };
   }, [globalSideBarEnable]);
+
+  useEffect(() => {
+    handleSidebarToggle();
+  }, [keeySidebarEnabled, isLoggedIn]);
 
   /**
    * TSX

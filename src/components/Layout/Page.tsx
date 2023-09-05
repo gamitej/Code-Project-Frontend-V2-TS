@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { FullScreenLoader } from "..";
 import ErrorPage from "./ErrorPage";
+import { useGlobal } from "@/store/global/useGlobal";
 
 interface PageProps {
   children: React.ReactNode;
@@ -17,6 +18,7 @@ const Page = ({
   error = false,
   clsName,
 }: PageProps) => {
+  const { globalSideBarEnable } = useGlobal();
   const [animate, setAnimate] = useState<boolean>(true);
 
   // page transition animation
@@ -46,11 +48,15 @@ const Page = ({
         animate ? "animate" : ""
       }  mt-5 mx-5 lg:mt-6 h-full`}
     >
-      <div className={`h-full m-auto`}>
+      <div
+        className={`h-full ${
+          globalSideBarEnable ? "w-[calc(100%-4.5rem)]" : "w-full"
+        } ml-auto`}
+      >
         {children}
-        <br />
-        <br />
       </div>
+      <br />
+      <br />
     </div>
   );
 };
