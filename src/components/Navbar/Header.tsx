@@ -14,9 +14,9 @@ const Header = ({ navbarHeight }: AppAuth) => {
       className={`sticky top-0 z-[100] bg-darkCard shadow-md flex justify-between items-center px-5 md:px-8`}
       style={{ height: `${navbarHeight}rem` }}
     >
-      <div className="flex items-center gap-x-4">
+      <div className="flex items-center gap-x-3">
         {/* ====== side bar button ====== */}
-        <div className="p-2 px-3 hover:bg-slate-700 rounded-md">
+        <div className="px-2 hover:bg-slate-700 rounded-md">
           <DehazeIcon
             onClick={() => setGlobalSideBarEnable(true)}
             className="cursor-pointer"

@@ -11,17 +11,17 @@ interface GlobalState {
   colorShades: string;
   globalSideBarEnable: boolean;
   windowDimensions: WindowDimensions;
-  setWindowDimensions: (prosp: WindowDimensions) => void;
+  setWindowDimensions: (dimensions: WindowDimensions) => void;
   setColorShades: (color: string) => void;
   setGlobalSideBarEnable: (open: boolean) => void;
 }
 
 export const useGlobal = create<GlobalState>((set) => ({
   colorShades: getSession(colorSession) || "#e9c46a",
-  windowDimensions: { width: 0, height: 0 },
+  windowDimensions: { width: window.innerWidth, height: window.innerHeight },
   globalSideBarEnable: false,
-  setWindowDimensions: () => {
-    set((state) => ({ ...state }));
+  setWindowDimensions: (dimensions) => {
+    set((state) => ({ ...state, windowDimensions: dimensions }));
   },
   setGlobalSideBarEnable: (open) => {
     set((state) => ({ ...state, globalSideBarEnable: open }));

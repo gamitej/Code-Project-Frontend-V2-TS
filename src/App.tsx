@@ -15,7 +15,7 @@ import { useGlobal } from "./store/global/useGlobal";
 
 function App() {
   const { isLoggedIn } = useAuth();
-  const { setWindowDimensions } = useGlobal();
+  const { setWindowDimensions, windowDimensions } = useGlobal();
 
   const AppProps = {
     isLoggedIn,
@@ -47,7 +47,9 @@ function App() {
       {/* scroll to top btn */}
       <ScrollToTopButton handleScrollToTop={handleScrollToTop} />
       <Toaster position="top-center" reverseOrder={false} />
-      <Sidebar />
+      <Sidebar
+        keeySidebarEnabled={windowDimensions.width >= 500 ? true : false}
+      />
       {/* Navbar */}
       <Header {...AppProps} />
       <Suspense fallback={<FullScreenLoader />}>

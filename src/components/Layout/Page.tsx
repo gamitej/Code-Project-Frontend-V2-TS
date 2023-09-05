@@ -18,7 +18,7 @@ const Page = ({
   error = false,
   clsName,
 }: PageProps) => {
-  const { globalSideBarEnable } = useGlobal();
+  const { globalSideBarEnable, windowDimensions } = useGlobal();
   const [animate, setAnimate] = useState<boolean>(true);
 
   // page transition animation
@@ -50,7 +50,11 @@ const Page = ({
     >
       <div
         className={`h-full ${
-          globalSideBarEnable ? "w-[calc(100%-4.5rem)]" : "w-full"
+          globalSideBarEnable
+            ? windowDimensions.width < 500
+              ? "w-full"
+              : "w-[calc(100%-4.5rem)]"
+            : "w-full"
         } ml-auto`}
       >
         {children}
