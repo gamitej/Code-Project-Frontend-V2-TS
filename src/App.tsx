@@ -1,4 +1,4 @@
-import { Suspense } from "react";
+import { Suspense, useEffect } from "react";
 import { Toaster } from "react-hot-toast";
 import Router from "@/routes/Router";
 // comp
@@ -10,9 +10,12 @@ import {
 } from "@/components";
 // store
 import { useAuth } from "@/store/auth/useAuth";
+import { getWindowDimensions } from "./data/data";
+import { useGlobal } from "./store/global/useGlobal";
 
 function App() {
   const { isLoggedIn } = useAuth();
+  const { setWindowDimensions } = useGlobal();
 
   const AppProps = {
     isLoggedIn,
@@ -27,6 +30,15 @@ function App() {
     });
   };
 
+  useEffect(() => {
+    function handleResize() {
+      setWindowDimensions(getWindowDimensions());
+    }
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   /**
    * JSX
    */
@@ -35,7 +47,7 @@ function App() {
       {/* scroll to top btn */}
       <ScrollToTopButton handleScrollToTop={handleScrollToTop} />
       <Toaster position="top-center" reverseOrder={false} />
-      <Sidebar keeySidebarEnabled />
+      <Sidebar />
       {/* Navbar */}
       <Header {...AppProps} />
       <Suspense fallback={<FullScreenLoader />}>
