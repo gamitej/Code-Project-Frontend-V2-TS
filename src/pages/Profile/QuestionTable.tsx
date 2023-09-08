@@ -38,7 +38,7 @@ const QuestionTable = ({
    * TSX
    */
   return (
-    <div className="flex flex-col w-full m-auto h-full">
+    <div className="flex flex-col w-full m-auto h-full overflow-x-scroll">
       <h1
         className="text-purple-600 text-2xl font-semibold text-center mb-5 mt-4"
         style={{ color: colorShades }}
@@ -53,8 +53,8 @@ const QuestionTable = ({
       )}
       {/* HEADER */}
       {quesData?.length > 0 && (
-        <div className="h-full overflow-auto w-full min-w-[30rem]">
-          <div className="grid grid-cols-9 mt-0 h-[4rem] bg-darkText items-center p-3 font-semibold text-lightText sticky top-0">
+        <div className="h-full overflow-auto w-full min-w-[50rem]">
+          <div className="grid grid-cols-9 mt-0 h-[4rem] bg-darkText items-center font-semibold text-lightText sticky top-0">
             <div className="col-span-2 capitalize text-xl text-center">
               <h1>topic</h1>
             </div>
@@ -72,7 +72,7 @@ const QuestionTable = ({
           {/* DATA */}
           {quesData?.map((item: QuestionsData, idx: number) => (
             <React.Fragment key={idx}>
-              <div className="grid grid-cols-9 items-center h-[4rem] px-2 mt-2 hover:bg-darkText cursor-pointer font-semibold text-lightText">
+              <div className="grid grid-cols-9 items-center h-[4rem] mt-2 hover:bg-darkText cursor-pointer font-semibold text-lightText">
                 <div className="col-span-2 text-center">
                   <p>{item?.topic}</p>
                 </div>

@@ -34,7 +34,6 @@ function App() {
     function handleResize() {
       setWindowDimensions(getWindowDimensions());
     }
-
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
@@ -48,7 +47,7 @@ function App() {
       <ScrollToTopButton handleScrollToTop={handleScrollToTop} />
       <Toaster position="top-center" reverseOrder={false} />
       <Sidebar
-        keeySidebarEnabled={windowDimensions.width >= 500 ? true : false}
+        keeySidebarEnabled={windowDimensions.width >= 800 ? true : false}
       />
       {/* Navbar */}
       <Header {...AppProps} />
