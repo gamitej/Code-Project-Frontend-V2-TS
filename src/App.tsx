@@ -8,14 +8,16 @@ import {
   ScrollToTopButton,
   Sidebar,
 } from "@/components";
+// data / utils
+import colorCode from "@/utils/colorCode.json";
+import { getWindowDimensions } from "./data/data";
 // store
 import { useAuth } from "@/store/auth/useAuth";
-import { getWindowDimensions } from "./data/data";
 import { useGlobal } from "./store/global/useGlobal";
 
 function App() {
   const { isLoggedIn } = useAuth();
-  const { setWindowDimensions, windowDimensions } = useGlobal();
+  const { setWindowDimensions, windowDimensions, darkMode } = useGlobal();
 
   const AppProps = {
     isLoggedIn,
@@ -37,6 +39,18 @@ function App() {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+
+    document.body.style.backgroundColor = darkMode
+      ? colorCode.darkColorBg
+      : colorCode.lightColorBg;
+  }, [darkMode]);
 
   /**
    * JSX

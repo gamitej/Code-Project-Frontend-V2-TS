@@ -1,4 +1,7 @@
 {
+  "darkColorBg": "#111b21",
+  "lightColorBg": "#fff",
+
   "easy": "#90EE90",
   "medium": "#FFE452",
   "hard": "#FF5733",

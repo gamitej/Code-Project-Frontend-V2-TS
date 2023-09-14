@@ -14,7 +14,7 @@ const ExploreContent = ({
   solved,
   onGoingTopic,
 }: ExploreTopicsData) => {
-  const { colorShades } = useGlobal();
+  const { colorShades, darkMode } = useGlobal();
   const [hoverElement, setHoverElement] = useState<string>("");
 
   /**
@@ -22,17 +22,23 @@ const ExploreContent = ({
    */
   return (
     <div
-      className="col-span-12 md:col-span-6 h-[10rem] lg:col-span-4 bg-darkCard rounded-md hover:bg-slate-800 cursor-pointer"
+      className="col-span-12 md:col-span-6 h-[10rem] lg:col-span-4 dark:bg-darkCard dark:border-0 border border-zinc-400 rounded-md cursor-pointer"
       onMouseEnter={() => setHoverElement(urlTitle)}
       onMouseLeave={() => setHoverElement("")}
-      style={{ boxShadow: `1px 1px 2px 0 ${colorShades}` }}
+      style={{
+        boxShadow: darkMode
+          ? `1px 1px 2px 0 ${colorShades}`
+          : `4px 4px 2px 2px ${colorShades}`,
+      }}
     >
       <div className="relative flex justify-center items-center px-3 h-full">
-        <p className="text-white text-xl">{title}</p>
+        <p className="dark:text-white font-semibold text-darkText text-xl">
+          {title}
+        </p>
         {/* in progress */}
         <div className="absolute top-3 left-3">
           <button
-            className={`px-2 rounded-sm shadow-md`}
+            className={`px-2 rounded-sm dark:font-normal font-semibold`}
             style={{
               color: colorShades,
               display:
@@ -45,7 +51,7 @@ const ExploreContent = ({
           </button>
         </div>
         {/* status */}
-        <div className="absolute top-3 right-3 text-white">
+        <div className="absolute top-3 right-3 dark:text-white text-darkText">
           <p>{solved === total ? "Completed" : `(${solved}/${total})`}</p>
         </div>
         {/* go to topic page */}

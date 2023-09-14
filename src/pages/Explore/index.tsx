@@ -43,13 +43,13 @@ const Explore = () => {
         {/* HEADING */}
         <div className="flex flex-col justify-center items-center gap-y-4">
           <h3
-            className="RISE"
+            className="RISE font-semibold dark:font-normal"
             style={{ color: colorShades, fontSize: "2.3rem" }}
           >
             Explore
           </h3>
           {onGoingTopic && (
-            <p className="text-lightText font-medium text-lg capitalize">
+            <p className="dark:text-lightText text-darkText font-semibold dark:font-medium text-lg capitalize">
               In progress topic -{" "}
               {topicDisplayName ? topicName[topicDisplayName] : ""}
             </p>
