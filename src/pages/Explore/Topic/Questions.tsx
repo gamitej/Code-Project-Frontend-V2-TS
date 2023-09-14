@@ -12,7 +12,7 @@ const Questions = ({
   cardType,
   handleMarkAsDone = () => {},
 }: SelectedTopicData) => {
-  const { colorShades } = useGlobal();
+  const { colorShades, darkMode } = useGlobal();
   const [hoveredQue, setHoveredQue] = useState<string>("");
 
   const totalCount = useMemo(() => {
@@ -40,25 +40,37 @@ const Questions = ({
    */
   return (
     <div
-      className="col-span-6 md:col-span-3 lg:col-span-2 p-2 rounded-md shadow-md h-[25rem] bg-darkCard min-w-[20rem]"
-      style={{ boxShadow: `1px 1px 2px 0 ${colorShades}` }}
+      className="col-span-6 md:col-span-3 lg:col-span-2 p-2 rounded-md shadow-md h-[25rem] dark:bg-darkCard min-w-[20rem] border border-zinc-400 dark:border"
+      style={{
+        boxShadow: darkMode
+          ? `1px 1px 2px 0 ${colorShades}`
+          : `4px 4px 2px 2px ${colorShades}`,
+      }}
     >
       {/* heading */}
-      <div className="bg-darkText flex justify-between items-center h-[3.5rem] px-4">
+      <div
+        style={{
+          backgroundColor: darkMode ? "#2A3942" : colorShades,
+        }}
+        className="flex justify-between items-center h-[3.5rem] px-4"
+      >
         <h3
           className="text-white capitalize text-lg"
-          style={{ color: colorShades, fontWeight: 600 }}
+          style={{
+            color: darkMode ? colorShades : "#2A3942",
+            fontWeight: 600,
+          }}
         >
           {cardType}
         </h3>
-        <p className="text-white">{totalCount}</p>
+        <p className="dark:text-white">{totalCount}</p>
       </div>
       {/* questions */}
       <div className="h-[20rem] overflow-y-auto mt-2">
         {questions.map(({ completed, url, name, id }, idx) => (
           <div
             key={idx}
-            className="flex items-center md:gap-x-4 px-4 py-2 hover:bg-darkText"
+            className="flex items-center md:gap-x-4 px-4 py-2 dark:hover:bg-darkText hover:bg-slate-200"
           >
             <div className="w-[4rem]">
               <TaskAltIcon
@@ -78,7 +90,12 @@ const Questions = ({
                 target="_blank"
                 className={`text-white text-md`}
                 style={{
-                  color: name === hoveredQue ? colorShades : "white",
+                  color:
+                    name === hoveredQue
+                      ? colorShades
+                      : !darkMode
+                      ? "black"
+                      : "white",
                 }}
               >
                 {name}
