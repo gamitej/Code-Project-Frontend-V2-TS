@@ -3,7 +3,7 @@ import { FooterProps } from "@/types/pages";
 const Footer = ({ handleAuthSwitch, switchAuth = true }: FooterProps) => {
   return (
     <div className="mb-[3rem]">
-      <span className="text-white">
+      <span className="dark:text-white text-darkText">
         {switchAuth ? "Not Registered ? " : "Registered ? "}
       </span>
       <span

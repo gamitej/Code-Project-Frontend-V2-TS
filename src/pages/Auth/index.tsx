@@ -6,8 +6,10 @@ import Login from "./Login";
 import SignUp from "./SignUp";
 import { useAuth } from "@/store/auth/useAuth";
 import { AuthInputForm, AppAuth } from "@/types/pages";
+import { useGlobal } from "@/store/global/useGlobal";
 
 const Auth = ({ isLoggedIn, navbarHeight }: AppAuth) => {
+  const { colorShades, darkMode } = useGlobal();
   const { handleLogin, handleSignUp, isLoading } = useAuth();
   const [inputForm, setInputForm] = useState<AuthInputForm>({});
   const [switchAuth, setSwitchAuth] = useState<boolean>(true);
@@ -47,16 +49,22 @@ const Auth = ({ isLoggedIn, navbarHeight }: AppAuth) => {
   return (
     <div
       className={`flex w-[95%] m-auto justify-center items-center`}
-      style={{ height: `calc(100vh - ${navbarHeight}rem)` }}
+      style={{
+        height: `calc(100vh - ${navbarHeight}rem)`,
+      }}
     >
       <form
         onSubmit={handleFormSubmit}
-        className="w-[30rem] rounded-lg flex flex-col items-center gap-y-[1.5rem] shadow-lg bg-darkCard"
+        className="w-[30rem] rounded-lg flex flex-col items-center gap-y-[1.5rem] shadow-lg dark:bg-darkCard border border-zinc-400"
+        style={{
+          boxShadow: darkMode
+            ? `1px 1px 2px 0 ${colorShades}`
+            : `4px 4px 2px 2px ${colorShades}`,
+        }}
       >
         {/* ==== HEAD ==== */}
         <div className="mt-[2rem] mb-[1rem]">
-          <h3 className="text-white text-2xl font-semibold flex justify-center items-center mt-3 gap-x-3">
-            {/* <img src="/assets/img-w.png" width={35} loading="lazy" /> */}
+          <h3 className="dark:text-white text-darkText text-2xl font-semibold flex justify-center items-center mt-3 gap-x-3">
             Code
           </h3>
         </div>

@@ -11,6 +11,7 @@ import {
 // mui icons
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
+import { useGlobal } from "@/store/global/useGlobal";
 
 interface InputFieldPasswordProps {
   name: string;
@@ -33,6 +34,8 @@ function InputFieldPassword({
   maxLength = 8,
   label = "Password",
 }: InputFieldPasswordProps) {
+  const { darkMode } = useGlobal();
+
   // =========== USE_STATE HOOK ===============
   const [showPassword, setShowPassword] = React.useState(false);
 
@@ -50,7 +53,7 @@ function InputFieldPassword({
       sx={{
         m: 1,
         width,
-        backgroundColor: "#D1D6D8",
+        backgroundColor: darkMode ? "#D1D6D8" : "white",
         borderRadius: ".25rem",
       }}
       variant="outlined"

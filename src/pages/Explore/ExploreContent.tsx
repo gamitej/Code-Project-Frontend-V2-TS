@@ -60,7 +60,7 @@ const ExploreContent = ({
             to={`/explore/${urlTitle}`}
             className={`px-2 rounded-sm shadow-md ${
               hoverElement === urlTitle ? "block" : "hidden"
-            } duration-300 ease-in-out border cursor-pointer hover:bg-zinc-500`}
+            } duration-300 ease-in-out border cursor-pointer hover:bg-blue-50`}
             style={{
               color: colorShades,
               borderColor: colorShades,

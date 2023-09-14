@@ -10,15 +10,22 @@ interface NavButtonProps {
   isActive: boolean;
   colorShades: string;
   icon: React.ReactElement;
+  darkMode: boolean;
 }
 
-const NavButton = ({ to, isActive, colorShades, icon }: NavButtonProps) => (
+const NavButton = ({
+  to,
+  isActive,
+  colorShades,
+  icon,
+  darkMode,
+}: NavButtonProps) => (
   <NavLink
     to={to}
-    className="rounded-md p-2 hover:bg-zinc-500"
+    className="rounded-md p-2 hover:bg-zinc-200 dark:hover:bg-zinc-500"
     style={{
       backgroundColor: isActive ? colorShades : "",
-      color: isActive ? "black" : "#D1D6D8",
+      color: isActive ? "white" : darkMode ? "#D1D6D8" : "#2A3942",
     }}
   >
     {icon}
@@ -33,7 +40,7 @@ const Sidebar = ({
   const ref = useRef<any>();
   const { pathname } = useLocation();
   const { isLoggedIn } = useAuth();
-  const { globalSideBarEnable, setGlobalSideBarEnable, colorShades } =
+  const { globalSideBarEnable, setGlobalSideBarEnable, colorShades, darkMode } =
     useGlobal();
 
   // sidebar toggle event handler
@@ -74,7 +81,9 @@ const Sidebar = ({
   return (
     <div
       ref={ref}
-      className={`fixed z-[1000] top-0 left-0 w-[5rem] h-full bg-modal ease-in-out duration-300 ${
+      className={`fixed z-[1000] top-0 left-0 w-[5rem] h-full dark:bg-modal 
+      bg-slate-100
+      ease-in-out duration-300 ${
         globalSideBarEnable ? "translate-x-0 " : "-translate-x-full"
       }`}
     >
@@ -84,12 +93,14 @@ const Sidebar = ({
             to="/"
             isActive={pathname === "/"}
             colorShades={colorShades}
+            darkMode={darkMode}
             icon={<HomeIcon style={{ fontSize: "2rem" }} />}
           />
           <NavButton
             to="/profile"
             isActive={pathname.startsWith("/profile")}
             colorShades={colorShades}
+            darkMode={darkMode}
             icon={<AccountBoxIcon style={{ fontSize: "2rem" }} />}
           />
         </div>

@@ -1,3 +1,4 @@
+import { useGlobal } from "@/store/global/useGlobal";
 import { TextField, TextFieldProps } from "@mui/material";
 
 interface InputTextFieldProps extends Omit<TextFieldProps, "size"> {
@@ -30,6 +31,8 @@ const InputTextField = ({
   placeholder,
   ...restProps
 }: InputTextFieldProps) => {
+  const { darkMode } = useGlobal();
+
   return (
     <TextField
       type={type}
@@ -44,7 +47,7 @@ const InputTextField = ({
       sx={{
         width,
         borderRadius: ".25rem",
-        backgroundColor: "#D1D6D8",
+        backgroundColor: darkMode ? "#D1D6D8" : "white",
         color: "whitesmoke",
       }}
       required={required}
