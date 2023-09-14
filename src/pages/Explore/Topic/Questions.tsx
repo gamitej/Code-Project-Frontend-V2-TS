@@ -40,7 +40,7 @@ const Questions = ({
    */
   return (
     <div
-      className="col-span-6 md:col-span-3 lg:col-span-2 p-2 rounded-md shadow-md h-[25rem] dark:bg-darkCard min-w-[20rem] border border-zinc-400 dark:border"
+      className="col-span-6 md:col-span-3 lg:col-span-2 p-2 rounded-md shadow-md h-[25rem] dark:bg-darkCard min-w-[20rem] border border-zinc-400 dark:border-slate-800"
       style={{
         boxShadow: darkMode
           ? `1px 1px 2px 0 ${colorShades}`

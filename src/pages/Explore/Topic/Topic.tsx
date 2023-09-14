@@ -65,7 +65,7 @@ const Topic = () => {
       {/* head section */}
       <div className="flex flex-col justify-center items-center gap-y-4 mt-10">
         <h3
-          className="RISE capitalize"
+          className="RISE capitalize font-semibold dark:font-normal"
           style={{ color: colorShades, fontSize: "2.3rem" }}
         >
           {topicDisplayName ? topicName[topicDisplayName] : ""}
