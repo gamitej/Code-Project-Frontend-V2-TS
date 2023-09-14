@@ -54,7 +54,7 @@ const QuestionTable = ({
       {/* HEADER */}
       {quesData?.length > 0 && (
         <div className="h-full overflow-auto w-full min-w-[50rem]">
-          <div className="grid grid-cols-9 mt-0 h-[4rem] bg-darkText items-center font-semibold text-lightText sticky top-0">
+          <div className="grid grid-cols-9 mt-0 h-[4rem] dark:bg-darkText bg-slate-200 items-center font-semibold dark:text-lightText text-darkText sticky top-0">
             <div className="col-span-2 capitalize text-xl text-center">
               <h1>topic</h1>
             </div>
@@ -72,7 +72,11 @@ const QuestionTable = ({
           {/* DATA */}
           {quesData?.map((item: QuestionsData, idx: number) => (
             <React.Fragment key={idx}>
-              <div className="grid grid-cols-9 items-center h-[4rem] mt-2 hover:bg-darkText cursor-pointer font-semibold text-lightText">
+              <div
+                className="grid grid-cols-9 items-center h-[4rem] mt-2 dark:hover:bg-darkText
+              hover:bg-slate-200
+              cursor-pointer font-semibold dark:text-lightText text-darkText"
+              >
                 <div className="col-span-2 text-center">
                   <p>{item?.topic}</p>
                 </div>

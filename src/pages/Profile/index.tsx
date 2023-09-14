@@ -13,7 +13,7 @@ import UserProfile from "./UserProfile";
 
 const Profile = () => {
   const { userInfo } = useAuth();
-  const { colorShades } = useGlobal();
+  const { colorShades, darkMode } = useGlobal();
 
   // ========== API CALL'S ==============
   // user profile api call
@@ -52,12 +52,12 @@ const Profile = () => {
       <div className="flex flex-col justify-center items-center gap-y-4">
         {/* head */}
         <div className="mt-5">
-          <h3
-            className="RISE capitalize"
+          <p
+            className="RISE capitalize font-semibold dark:font-normal"
             style={{ color: colorShades, fontSize: "2.1rem" }}
           >
             {userInfo.name}
-          </h3>
+          </p>
         </div>
 
         {/* user profile */}
@@ -65,8 +65,14 @@ const Profile = () => {
 
         {/* history table*/}
         <div
-          className="w-full lg:w-[80%] m-auto h-[80vh] shadow-md rounded-md bg-darkCard px-4 py-2 mt-10"
-          style={{ boxShadow: `1px 1px 2px 0 ${colorShades}` }}
+          className="w-full lg:w-[80%] m-auto h-[80vh] shadow-md rounded-md dark:bg-darkCard border 
+          dark:border-slate-800
+          border-zinc-400 px-4 py-2 mt-10"
+          style={{
+            boxShadow: darkMode
+              ? `1px 1px 2px 0 ${colorShades}`
+              : `4px 4px 2px 2px ${colorShades}`,
+          }}
         >
           <QuestionTable questionsData={queData || []} />
         </div>
