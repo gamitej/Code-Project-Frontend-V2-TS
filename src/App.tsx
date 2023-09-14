@@ -17,7 +17,8 @@ import { useGlobal } from "./store/global/useGlobal";
 
 function App() {
   const { isLoggedIn } = useAuth();
-  const { setWindowDimensions, windowDimensions, darkMode } = useGlobal();
+  const { setWindowDimensions, windowDimensions, darkMode, colorShades } =
+    useGlobal();
 
   const AppProps = {
     isLoggedIn,
@@ -40,17 +41,23 @@ function App() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  // dark mode / light mode 
   useEffect(() => {
+    const root = document.documentElement;
     if (darkMode) {
       document.documentElement.classList.add("dark");
+      // scroll bar color set
+      root.style.setProperty("--scrollBarColor", "#4c585f");
     } else {
       document.documentElement.classList.remove("dark");
+      // scroll bar color set
+      root.style.setProperty("--scrollBarColor", colorShades);
     }
 
     document.body.style.backgroundColor = darkMode
       ? colorCode.darkColorBg
       : colorCode.lightColorBg;
-  }, [darkMode]);
+  }, [darkMode, colorShades]);
 
   /**
    * JSX
