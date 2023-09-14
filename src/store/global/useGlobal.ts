@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { colorSession } from "@/utils/nameMapping.json";
+import { colorSession, darkModeSession } from "@/utils/nameMapping.json";
 import { getSession, setSession } from "@/utils/session";
 
 interface WindowDimensions {
@@ -19,11 +19,12 @@ interface GlobalState {
 }
 
 export const useGlobal = create<GlobalState>((set) => ({
-  darkMode: true,
+  darkMode: getSession(darkModeSession) || false,
   colorShades: getSession(colorSession) || "#e9c46a",
   windowDimensions: { width: window.innerWidth, height: window.innerHeight },
   globalSideBarEnable: false,
   setDarkMode: () => {
+    setSession(darkModeSession, !getSession(darkModeSession));
     set((state) => ({ ...state, darkMode: !state.darkMode }));
   },
   setWindowDimensions: (dimensions) => {

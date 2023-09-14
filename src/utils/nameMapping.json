@@ -1,6 +1,7 @@
 {
   "userSession": "USER",
   "colorSession": "COLOR",
+  "darkModeSession": "MODE",
 
   "tree-1": "Tree - 1",
   "tree-2": "Tree - 2",
