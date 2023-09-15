@@ -49,7 +49,7 @@ function ColorOptions({
         className="font-semibold text-lg px-2 p-1 dark:text-white
         text-darkText cursor-pointer dark:hover:bg-slate-400 hover:bg-slate-200"
       >
-        {darkMode ? (
+        {!darkMode ? (
           <React.Fragment>
             <DarkModeIcon className="mr-2 ml-2" />
             Dark Mode
