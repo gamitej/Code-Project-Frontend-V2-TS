@@ -5,6 +5,7 @@ import HeaderColorPalette from "./comp/HeaderColorPalette";
 import { NavLink } from "react-router-dom";
 import DehazeIcon from "@mui/icons-material/Dehaze";
 import UserMenu from "./comp/UserMenu";
+import logo from "@/assests/logo-2.png";
 
 const Header = ({ navbarHeight }: AppAuth) => {
   const {
@@ -41,9 +42,9 @@ const Header = ({ navbarHeight }: AppAuth) => {
         <NavLink
           to="/"
           className={`RISE font-semibold dark:font-normal -ml-8`}
-          style={{ color: colorShades, fontSize: "1.8rem" }}
+          style={{ color: colorShades }}
         >
-          <img src="/public/logo-2.png" alt="" height={120} width={120} />
+          <img src={logo} alt="" height={120} width={120} />
         </NavLink>
       </div>
       {/* ====== header end ======= */}
