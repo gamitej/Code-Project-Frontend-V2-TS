@@ -13,7 +13,7 @@ export async function getAllQuestionsUserData({ id, token }: UserInfoApiData) {
 }
 
 // GET USER STATUS DATA
-export async function getUserPrfoileData({ id, token }: UserInfoApiData) {
+export async function getUserProfileData({ id, token }: UserInfoApiData) {
   const { data } = await http.get(`${endpoint}/profile/user_status?id=${id}`, {
     headers: { Authorization: `Bearer ${token}` },
   });

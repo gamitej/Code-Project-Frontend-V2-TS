@@ -58,7 +58,7 @@ const Header = ({ navbarHeight }: AppAuth) => {
           style={{ color: colorShades }}
           className="font-semibold text-[1.3rem]"
         >
-          {userInfo.name}
+          {userInfo && userInfo.name}
         </p>
         {/* logout */}
         <UserMenu colorShades={colorShades} handleLogout={handleLogout} />

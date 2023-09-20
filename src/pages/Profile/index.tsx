@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Page } from "@/components";
 import QuestionTable from "./QuestionTable";
 // services
-import { getAllQuestionsUserData, getUserPrfoileData } from "@/services";
+import { getAllQuestionsUserData, getUserProfileData } from "@/services";
 // store
 import { useAuth } from "@/store/auth/useAuth";
 import { useGlobal } from "@/store/global/useGlobal";
@@ -23,7 +23,7 @@ const Profile = () => {
     isError: isPDError,
     error: isPDerrorRes,
   } = useQuery<UserProfileData | undefined, Error>({
-    queryFn: () => getUserPrfoileData(userInfo),
+    queryFn: () => getUserProfileData(userInfo),
     queryKey: ["profile", userInfo],
     staleTime: 0,
   });

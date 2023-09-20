@@ -35,7 +35,11 @@ export const useAuth = create<AuthState>((set) => ({
   // logout
   handleLogout: () => {
     removeSession(userSession);
-    set((state) => ({ ...state, isLoggedIn: false }));
+    set((state) => ({
+      ...state,
+      isLoggedIn: false,
+      userInfo: { id: "", name: "", token: "" },
+    }));
   },
   // login
   handleLogin: async (req) => {

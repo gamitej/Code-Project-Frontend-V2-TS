@@ -6,7 +6,7 @@ import {
 } from "./ApiServices/Explore/exploreService";
 
 import {
-  getUserPrfoileData,
+  getUserProfileData,
   getAllQuestionsUserData,
 } from "./ApiServices/Profile/profileService";
 
@@ -16,6 +16,6 @@ export {
   getExploreTopices,
   getSelectedTopicData,
   markQuestion,
-  getUserPrfoileData,
+  getUserProfileData,
   getAllQuestionsUserData,
 };
