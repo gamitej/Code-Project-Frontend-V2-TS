@@ -61,7 +61,7 @@ const Header = ({ navbarHeight }: AppAuth) => {
         />
         <p
           style={{ color: colorShades }}
-          className="font-semibold text-[1.3rem]"
+          className="font-semibold text-[1.3rem] capitalize"
         >
           {userInfo.name}
         </p>
