@@ -48,7 +48,11 @@ const Header = ({ navbarHeight }: AppAuth) => {
         </NavLink>
       </div>
       {/* ====== header end ======= */}
-      <div className="flex justify-center items-center w-[10rem] gap-x-4">
+      <div
+        className={`flex justify-center items-center ${
+          isLoggedIn ? "w-[10rem]" : "w-[3rem]"
+        } gap-x-4`}
+      >
         <HeaderColorPalette
           darkMode={darkMode}
           setDarkMode={setDarkMode}
@@ -59,10 +63,12 @@ const Header = ({ navbarHeight }: AppAuth) => {
           style={{ color: colorShades }}
           className="font-semibold text-[1.3rem]"
         >
-          {userInfo && userInfo.name}
+          {userInfo.name}
         </p>
         {/* logout */}
-        <UserMenu colorShades={colorShades} handleLogout={handleLogout} />
+        {isLoggedIn && (
+          <UserMenu colorShades={colorShades} handleLogout={handleLogout} />
+        )}
       </div>
     </div>
   );
