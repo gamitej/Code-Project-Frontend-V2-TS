@@ -35,7 +35,6 @@ const Page = ({
   if (loading) return <FullScreenLoader />;
 
   if (error) {
-    // console.log(errorRes);
     return <ErrorPage errorRes={errorRes} />;
   }
 
