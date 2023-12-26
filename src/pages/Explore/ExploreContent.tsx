@@ -21,7 +21,8 @@ const ExploreContent = ({
    * TSX
    */
   return (
-    <div
+    <NavLink
+      to={`/explore/${urlTitle}`}
       className="col-span-12 md:col-span-6 h-[10rem] lg:col-span-4 dark:bg-darkCard dark:border-0 border border-zinc-400 rounded-md cursor-pointer"
       onMouseEnter={() => setHoverElement(urlTitle)}
       onMouseLeave={() => setHoverElement("")}
@@ -56,8 +57,7 @@ const ExploreContent = ({
         </div>
         {/* go to topic page */}
         <div className="absolute bottom-3 right-3">
-          <NavLink
-            to={`/explore/${urlTitle}`}
+          <div
             className={`px-2 rounded-sm shadow-md ${
               hoverElement === urlTitle ? "block" : "hidden"
             } duration-300 ease-in-out border cursor-pointer hover:bg-blue-50`}
@@ -68,10 +68,10 @@ const ExploreContent = ({
             }}
           >
             <EastOutlinedIcon />
-          </NavLink>
+          </div>
         </div>
       </div>
-    </div>
+    </NavLink>
   );
 };
 
