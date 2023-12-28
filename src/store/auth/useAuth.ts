@@ -45,7 +45,6 @@ export const useAuth = create<AuthState>((set) => ({
   handleLogin: async (req) => {
     set((state) => ({ ...state, isLoading: true }));
     const { message, error, data } = await LoginApi(req);
-    console.log(message, error);
     if (!error) {
       set((state) => ({
         ...state,
