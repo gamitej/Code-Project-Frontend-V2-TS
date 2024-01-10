@@ -8,8 +8,8 @@ import { getExploreTopices } from "@/services";
 import { useAuth } from "@/store/auth/useAuth";
 import { useGlobal } from "@/store/global/useGlobal";
 // type
-import { ExploreTopicsData, TopicName } from "@/types/pages";
 import topicName from "@/utils/nameMapping.json";
+import { ExploreTopicsData, TopicName } from "@/types/pages";
 
 const Explore = () => {
   const { colorShades } = useGlobal();
@@ -48,6 +48,7 @@ const Explore = () => {
           >
             Explore
           </h3>
+
           {onGoingTopic && (
             <p className="dark:text-lightText text-darkText font-semibold dark:font-medium text-lg capitalize">
               In progress topic -{" "}

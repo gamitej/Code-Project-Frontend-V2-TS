@@ -81,7 +81,7 @@ const Sidebar = ({
   return (
     <div
       ref={ref}
-      className={`fixed z-[1000] top-0 left-0 w-[5rem] h-full dark:bg-modal 
+      className={`fixed z-[99] top-0 left-0 w-[5rem] h-full dark:bg-modal 
       bg-slate-100
       ease-in-out duration-300 ${
         globalSideBarEnable ? "translate-x-0 " : "-translate-x-full"
