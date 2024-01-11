@@ -60,9 +60,12 @@ const Explore = () => {
           </h3>
 
           <ConfirmModal
-            children={<p>hi</p>}
+            children={
+              <p className="text-xl">Are you sure you want to submit ?</p>
+            }
+            height="10rem"
             open={isOpen}
-            title="confirm"
+            title="Confirm"
             onClose={closeConfirmModal}
             handleConfirm={confirmModal}
           />
