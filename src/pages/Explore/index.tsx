@@ -10,20 +10,11 @@ import { useGlobal } from "@/store/global/useGlobal";
 // type
 import topicName from "@/utils/nameMapping.json";
 import { ExploreTopicsData, TopicName } from "@/types/pages";
-// import { useConfirmModal } from "@/hooks/useConfirmModal";
-// import ConfirmModal from "@/components/Modal/ConfirmModal";
 
 const Explore = () => {
   const { colorShades } = useGlobal();
   const { userInfo } = useAuth();
 
-  // const { openConfirmModal, closeConfirmModal, isOpen, confirmModal } =
-  //   useConfirmModal();
-
-  // const handleOpenConfirmModal = async () => {
-  //   const data = await openConfirmModal();
-  //   console.log(data);
-  // };
   // ============= API CALL'S ==============
   const {
     data: exploreData = {},
@@ -57,17 +48,6 @@ const Explore = () => {
           >
             Explore
           </h3>
-
-          {/* <ConfirmModal
-            children={
-              <p className="text-xl">Are you sure you want to submit ?</p>
-            }
-            height="10rem"
-            open={isOpen}
-            title="Confirm"
-            onClose={closeConfirmModal}
-            handleConfirm={confirmModal}
-          /> */}
 
           {onGoingTopic && (
             <p className="dark:text-lightText text-darkText font-semibold dark:font-medium text-lg capitalize">
