@@ -1,43 +1,33 @@
-import { useState } from "react";
-import Modal from "@/components/Modal/Modal";
+import { useCallback, useState } from "react";
 
-const useConfirmModal = ({
-  message = "hi",
-}): [() => JSX.Element, () => Promise<boolean>] => {
+export const useConfirmModal = () => {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+
   const [promise, setPromise] = useState<null | {
     resolve: (val: boolean) => void;
   }>(null);
 
-  const confirm = (): Promise<boolean> =>
-    new Promise((resolve) => {
-      setPromise({ resolve });
-    });
-
-  const handleClose = () => {
-    setPromise(null);
-  };
-
-  const handleConfirm = () => {
-    promise?.resolve(true);
-    handleClose();
-  };
-
-  const handleCancel = () => {
+  const closeModal = () => {
+    setIsOpen(false);
     promise?.resolve(false);
-    handleClose();
   };
 
-  const ConfirmationDialog = () => (
-    <Modal open={promise !== null} title="confirm" onClose={handleClose}>
-      <div>{message}</div>
-      <div>
-        <button onClick={handleConfirm}>I Accept</button>
-        <button onClick={handleCancel}>Reject</button>
-      </div>
-    </Modal>
-  );
+  const confirmModal = () => {
+    setIsOpen(false);
+    promise?.resolve(true);
+  };
 
-  return [ConfirmationDialog, confirm];
+  const openConfirmModal = useCallback(() => {
+    return new Promise<boolean>((resolve) => {
+      setPromise({ resolve });
+      setIsOpen(true);
+    });
+  }, []);
+
+  return {
+    isOpen,
+    confirmModal,
+    openConfirmModal,
+    closeConfirmModal: closeModal,
+  };
 };
-
-export default useConfirmModal;

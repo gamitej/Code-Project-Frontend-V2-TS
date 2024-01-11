@@ -24,12 +24,17 @@ const Modal = ({
   const portalRoot = document.getElementById("portal");
   if (!portalRoot) return null;
 
+  const handleClose = () => {
+    console.log("handleClose");
+    onClose();
+  };
+
   /**
    * TSX
    */
   return createPortal(
     <div
-      onClick={onClose}
+      onClick={handleClose}
       className="fixed inset-0 z-[999] flex justify-center items-center bg-slate-800/70 backdrop-blur-sm"
     >
       <div
@@ -37,7 +42,7 @@ const Modal = ({
         style={{ width, height }}
       >
         <div
-          onClick={() => console.log("hji")}
+          onClick={handleClose}
           className="hover:bg-slate-300 p-1 rounded-full cursor-pointer absolute top-1 right-1"
         >
           <MdOutlineClose size={28} />
